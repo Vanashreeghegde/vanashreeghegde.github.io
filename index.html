@@ -11,8 +11,8 @@
     <style>
         :root {
             --bg: #0a0a0a;
-            --accent: #007bff; /* Electric Blue */
-            --accent-glow: rgba(0, 123, 255, 0.3);
+            --accent: #00ffd0; /* Cyber Green */
+            --accent-glow: rgba(0, 255, 208, 0.3);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
             --card-bg: #0d0d0d;
@@ -25,7 +25,9 @@
         /* Header */
         header { height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
-        h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; }
+        
+        /* Name in White */
+        h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; color: #ffffff; }
         .tagline { color: var(--accent); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; }
 
         .header-btns { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
@@ -112,15 +114,14 @@
         }
 
         /* Connect Section */
-        .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 123, 255, 0.03); }
+        .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 255, 208, 0.03); }
         .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 40px; font-size: 2.2rem; }
         .social-icons a { color: var(--text-main); text-decoration: none; transition: 0.3s; }
         .social-icons a:hover { color: var(--accent); transform: scale(1.2) translateY(-5px); }
 
-        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
-        .btn:hover { background: var(--accent); color: white; box-shadow: 0 0 20px var(--accent-glow); }
-        .btn-fill { background: var(--accent); color: white; }
-        .btn-fill:hover { background: transparent; color: var(--accent); }
+        /* Unified Button Theme */
+        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; background: transparent; }
+        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
 
         footer { text-align: center; padding: 50px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 1px; }
     </style>
@@ -129,10 +130,10 @@
 
     <header data-aos="zoom-in">
         <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
-        <h1>VANASHREE G. <span style="color: var(--accent)">HEGDE</span></h1>
+        <h1>VANASHREE G. HEGDE</h1>
         <div class="tagline">Data Scientist • Medical AI Specialization</div>
         <div class="header-btns">
-            <a href="#projects" class="btn btn-fill">My Work</a>
+            <a href="#projects" class="btn">My Work</a>
             <a href="resume.pdf" class="btn" target="_blank">Resume</a>
         </div>
     </header>
@@ -142,7 +143,7 @@
         <section id="summary" data-aos="fade-up">
             <h2>Summary</h2>
             <p class="info-text">
-                B.Sc. Data Science graduate with a <strong>9.3 CGPA</strong>. Currently pursuing <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. My primary expertise lies in adapting Transformer architectures for high-precision medical image analysis, bridging the gap between deep learning research and clinical explainability.
+                B.Sc. Data Science graduate with a <strong>9.3 CGPA</strong>. Currently pursuing <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. My primary expertise lies in adapting Transformer architectures for high-precision medical image analysis and explainability.
             </p>
         </section>
 
@@ -163,25 +164,25 @@
             
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Medical AI: Cancer Cell Classification <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Pioneering the use of Vision Transformers (ViT) with Attention Rollout to provide explainable AI insights in histopathology.</p>
+                <p class="project-desc">Implemented Vision Transformers (ViT) with Attention Rollout for explainable histopathology analysis.</p>
                 <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
 
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Automated NLP pipeline designed to categorize and route customer support tickets using TF-IDF and Scikit-learn.</p>
+                <p class="project-desc">NLP pipeline to categorize support tickets automatically using TF-IDF and Scikit-learn.</p>
                 <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
             </div>
 
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Fashion Recommendation System <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Computer Vision system utilizing VGG16 for feature extraction and similarity-based product ranking.</p>
+                <p class="project-desc">Computer Vision system utilizing VGG16 for feature extraction and similarity search.</p>
                 <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
             </div>
 
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Superstore Sales Analytics <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Business intelligence analysis using Seaborn and Plotly to identify regional profit leaks and seasonal trends.</p>
+                <p class="project-desc">Advanced EDA uncovering profit trends and customer segments using Plotly.</p>
                 <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
             </div>
         </section>
