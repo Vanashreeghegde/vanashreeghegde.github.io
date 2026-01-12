@@ -22,48 +22,48 @@
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         .container { width: 90%; max-width: 900px; margin: auto; }
         
-        /* Header & Profile Pic Animation (Option 2) */
+        /* Header */
         header { height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         
+        /* OPTION 1: BREATHING PULSE ANIMATION */
         .profile-img { 
             width: 150px; 
             height: 150px; 
+            border-radius: 50%;
             object-fit: cover; 
             margin-bottom: 25px; 
             border: 3px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
-            /* Morphing Border Logic */
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morph 8s ease-in-out infinite;
+            animation: breathing 3s ease-in-out infinite;
         }
 
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        @keyframes breathing {
+            0% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 25px var(--accent); transform: scale(1.03); }
+            100% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
         }
 
-        h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; color: #ffffff; }
+        /* Name in Pure White */
+        h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; color: #ffffff; text-transform: uppercase; }
         .tagline { color: var(--accent); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; }
 
         .header-btns { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
         section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
-        h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 40px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 40px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
 
         .info-text { font-size: 1.1rem; color: var(--text-sec); max-width: 800px; }
         .edu-item { margin-bottom: 25px; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid #1a1a1a; }
         .edu-title { font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
         .edu-meta { color: var(--accent); font-size: 0.9rem; margin-top: 5px; font-weight: 600; }
 
-        /* Projects */
+        /* Project Rows */
         .project-row { margin-bottom: 60px; padding: 25px; border-radius: 16px; background: rgba(255,255,255,0.02); border: 1px solid #1a1a1a; }
         .project-title { font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
         .project-desc { color: var(--text-sec); margin: 12px 0; font-size: 1rem; }
         .project-media { width: 100%; max-width: 450px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid #222; margin-top: 20px; }
         .project-media img { width: 100%; height: 250px; object-fit: contain; display: block; }
 
-        /* Skills */
+        /* TECHNICAL SKILLS - VISUAL ANIME GLOW */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
         .skill-item { 
             background: #0d0d0d; border: 1px solid #1a1a1a; padding: 35px 15px; border-radius: 16px; text-align: center; 
@@ -85,14 +85,15 @@
 
         @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
 
-        /* Connect */
+        /* Unified Buttons */
+        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; background: transparent; cursor: pointer; }
+        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
+
+        /* Footer & Socials */
         .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 255, 208, 0.03); }
         .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 40px; font-size: 2.2rem; }
         .social-icons a { color: var(--text-main); text-decoration: none; }
         .social-icons a:hover { color: var(--accent); transform: scale(1.2) translateY(-5px); }
-
-        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; background: transparent; }
-        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
 
         footer { text-align: center; padding: 50px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 1px; }
     </style>
@@ -134,22 +135,22 @@
             <h2>My Work</h2>
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Medical AI: Cancer Cell Classification <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Implemented Vision Transformers (ViT) with Attention Rollout for explainable histopathology analysis.</p>
+                <p class="project-desc">Explaining Vision Transformer (ViT) decisions in cancer detection using Attention Rollout mechanisms.</p>
                 <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">NLP pipeline to categorize support tickets automatically using TF-IDF and Scikit-learn.</p>
+                <p class="project-desc">Automated ticketing system using NLP and ML to streamline customer support operations.</p>
                 <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
             </div>
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Fashion Recommendation System <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Computer Vision system utilizing VGG16 for feature extraction and similarity search.</p>
+                <p class="project-desc">Deep Learning model using VGG16 to suggest similar clothing items based on visual features.</p>
                 <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
             </div>
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Superstore Sales Analytics <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Advanced EDA uncovering profit trends and customer segments using Plotly.</p>
+                <p class="project-desc">Comprehensive data analysis project uncovering regional profit trends and sales forecasts.</p>
                 <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
             </div>
         </section>
