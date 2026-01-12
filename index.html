@@ -3,70 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanashree G. Hegde | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Vanashree G. Hegde | Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         :root {
-            --bg: #000000;
-            --card-bg: #0a0a0a;
+            --bg: #030712; /* Neural Deep Black */
+            --card-bg: #111827; /* Dark Grey/Blue Card */
             --aqua: #00ffd0;
-            --text: #ffffff;
-            --text-dim: #a0a0a0;
+            --text: #f3f4f6;
+            --text-dim: #9ca3af;
+            --accent-glow: rgba(0, 255, 208, 0.15);
         }
 
         * { box-sizing: border-box; }
         body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        code, .mono { font-family: 'JetBrains Mono', monospace; }
         .container { width: 85%; max-width: 1000px; margin: auto; }
         
         /* Header */
-        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--aqua); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 255, 208, 0.4); }
-        h1 { font-size: 3.5rem; margin: 0; }
-        .highlight { color: var(--aqua); }
+        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%); }
+        .profile-img { width: 170px; height: 170px; border-radius: 50%; border: 3px solid var(--aqua); object-fit: cover; margin-bottom: 25px; box-shadow: 0 0 40px var(--accent-glow); }
+        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -1px; font-weight: 700; }
+        .highlight { color: var(--aqua); text-shadow: 0 0 10px rgba(0, 255, 208, 0.3); }
 
-        section { padding: 80px 0; }
-        h2 { font-size: 2rem; border-left: 5px solid var(--aqua); padding-left: 20px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        section { padding: 100px 0; border-bottom: 1px solid #1f2937; }
+        h2 { font-size: 1.8rem; color: var(--aqua); margin-bottom: 40px; display: flex; align-items: center; gap: 15px; }
+        h2::after { content: ""; height: 1px; background: #1f2937; flex-grow: 1; }
 
-        /* General Card Style */
-        .item-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; margin-bottom: 20px; transition: 0.3s; }
-        .item-card:hover { border-color: var(--aqua); }
-        .item-title { color: var(--aqua); font-weight: bold; font-size: 1.2rem; }
+        /* Card Style */
+        .item-card { background: var(--card-bg); padding: 30px; border-radius: 16px; border: 1px solid #1f2937; margin-bottom: 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .item-card:hover { border-color: var(--aqua); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); }
+        .item-title { color: var(--text); font-weight: 700; font-size: 1.25rem; }
 
-        /* PROJECT IMAGE SIZE SETTINGS */
-        .project-media { 
-            width: 100%; 
-            max-width: 450px; 
-            margin: 20px auto; 
-            background: #050505; 
-            border-radius: 12px; 
-            border: 1px solid #222; 
-            overflow: hidden; 
-        }
-        .project-media img { 
-            width: 100%; 
-            height: 250px; 
-            object-fit: contain; 
-            display: block; 
-            filter: grayscale(20%); 
-            transition: 0.5s; 
-        }
-        .project-media img:hover { filter: grayscale(0%); transform: scale(1.02); }
+        /* Project Image Logic */
+        .project-media { width: 100%; max-width: 450px; margin: 25px auto; background: #000; border-radius: 12px; border: 1px solid #374151; overflow: hidden; }
+        .project-media img { width: 100%; height: 250px; object-fit: contain; display: block; transition: 0.5s; }
+        .project-media img:hover { transform: scale(1.05); }
 
-        .github-link { color: var(--text); font-size: 1.8rem; transition: 0.3s; }
-        .github-link:hover { color: var(--aqua); transform: scale(1.2); }
+        .github-link { color: var(--aqua); font-size: 1.8rem; transition: 0.3s; }
+        .github-link:hover { transform: rotate(15deg); }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
-        .skill-item { background: #080808; border: 1px solid #1a1a1a; padding: 25px; border-radius: 15px; text-align: center; transition: 0.3s; }
-        .skill-item:hover { background: var(--aqua); color: black; transform: translateY(-5px); }
-        .skill-item i { font-size: 2rem; margin-bottom: 10px; display: block; }
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+        .skill-item { background: #111827; border: 1px solid #1f2937; padding: 20px; border-radius: 12px; text-align: center; transition: 0.3s; border-bottom: 3px solid transparent; }
+        .skill-item:hover { border-bottom: 3px solid var(--aqua); background: #1f2937; }
+        .skill-item i { font-size: 1.8rem; color: var(--aqua); margin-bottom: 12px; display: block; }
+        .skill-item span { font-size: 0.9rem; font-weight: 600; }
 
-        .btn { padding: 12px 30px; border: 2px solid var(--aqua); color: var(--aqua); text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; display: inline-block; margin-top: 20px; }
-        .btn:hover { background: var(--aqua); color: black; box-shadow: 0 0 20px var(--aqua); }
+        /* Connect Section */
+        #connect { text-align: center; background: linear-gradient(to bottom, transparent, #0a0f1d); }
+        .connect-box { max-width: 600px; margin: auto; padding: 40px; border: 1px dashed var(--aqua); border-radius: 20px; }
+        
+        .btn { padding: 12px 28px; border: 1px solid var(--aqua); color: var(--aqua); text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; display: inline-block; margin-top: 20px; font-family: 'JetBrains Mono', monospace; }
+        .btn:hover { background: var(--aqua); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
 
-        footer { text-align: center; padding: 60px; color: var(--text-dim); border-top: 1px solid #111; }
+        footer { text-align: center; padding: 50px; color: var(--text-dim); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -74,11 +68,11 @@
     <header>
         <div class="container" data-aos="zoom-in">
             <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
-            <h1>VANASHREE <span class="highlight">G. HEGDE</span></h1>
-            <p style="font-size: 1.2rem; color: var(--text-dim);">Aspiring Data Scientist</p>
-            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+            <h1>VANASHREE <span class="highlight">HEGDE</span></h1>
+            <p class="mono" style="color: var(--aqua); margin-top: 10px;">[ Aspiring Data Scientist ]</p>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 15px;">
+                <a href="#projects" class="btn">_view_work</a>
+                <a href="resume.pdf" class="btn" target="_blank">_resume</a>
             </div>
         </div>
     </header>
@@ -87,8 +81,8 @@
         <div class="container" data-aos="fade-up">
             <h2>Summary</h2>
             <div class="item-card">
-                <p style="line-height: 1.8; color: var(--text-dim); font-size: 1.1rem; margin: 0;">
-                B.Sc. Data Science graduate with a strong foundation in Python and machine learning. Currently upskilling through an <strong>Advanced Professional Certification in Data Science & AI from IIT Roorkee</strong>. I am actively building end-to-end projects that are deployable.
+                <p style="line-height: 1.8; color: var(--text-dim); font-size: 1.05rem;">
+                B.Sc. Data Science graduate with a strong foundation in Python and machine learning. Currently upskilling through an <strong>Advanced Professional Certification in Data Science & AI from IIT Roorkee</strong>. I am actively building end-to-end deployable AI solutions.
                 </p>
             </div>
         </div>
@@ -96,37 +90,39 @@
 
     <section id="education">
         <div class="container" data-aos="fade-up">
-            <h2>Education & Certification</h2>
+            <h2>Education</h2>
             <div class="item-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <span class="item-title">IIT Roorkee – iHub DivyaSampark</span>
-                    <span style="color: var(--text-dim);">2025 -- Present</span>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <span class="item-title">IIT Roorkee – iHub DivyaSampark</span>
+                        <p>Advanced Professional Certificate in Data Science & AI</p>
+                    </div>
+                    <span class="mono" style="color: var(--aqua);">2025-PRES</span>
                 </div>
-                <p>Advanced Professional Certificate in Data Science & AI (Ongoing)</p>
             </div>
             <div class="item-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <span class="item-title">Maharani Cluster University</span>
-                    <span style="color: var(--text-dim);">2021 -- 2024</span>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <span class="item-title">Maharani Cluster University</span>
+                        <p>B.Sc. in Data Science | <strong>CGPA: 9.3</strong></p>
+                    </div>
+                    <span class="mono" style="color: var(--aqua);">2021-2024</span>
                 </div>
-                <p>B.Sc. in Data Science | <strong>CGPA: 9.3</strong></p>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <div class="container">
-            <h2>Technical Projects</h2>
+            <h2>Featured_Projects</h2>
             
             <div class="item-card" data-aos="fade-up">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span class="item-title">Cancer Cell Classification (ViT)</span>
                     <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim); margin-top: 10px;">Implemented Vision Transformers (ViT) with Attention Rollout for explainable histopathology analysis.</p>
-                <div class="project-media">
-                    <img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg" alt="Cancer Classification">
-                </div>
+                <p style="color: var(--text-dim); margin-top: 10px;">Implemented Vision Transformers (ViT) with Attention Rollout for explainable medical diagnostics.</p>
+                <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
 
             <div class="item-card" data-aos="fade-up">
@@ -134,10 +130,8 @@
                     <span class="item-title">CRM Ticket Classification</span>
                     <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim); margin-top: 10px;">NLP pipeline for automatic categorization of support tickets using TF-IDF and Scikit-learn.</p>
-                <div class="project-media">
-                    <img src="https://support.cc/images/blog/help-desk-ticketing-system.png?v=1682512742702523116" alt="CRM Classification">
-                </div>
+                <p style="color: var(--text-dim); margin-top: 10px;">NLP pipeline for automatic ticket categorization using Scikit-learn and TF-IDF.</p>
+                <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
             </div>
 
             <div class="item-card" data-aos="fade-up">
@@ -145,10 +139,8 @@
                     <span class="item-title">Fashion Recommendation System</span>
                     <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim); margin-top: 10px;">Computer Vision system utilizing VGG16 for feature extraction and similarity ranking.</p>
-                <div class="project-media">
-                    <img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp" alt="Fashion Recommendation">
-                </div>
+                <p style="color: var(--text-dim); margin-top: 10px;">Computer Vision system using VGG16 for feature extraction and similarity ranking.</p>
+                <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
             </div>
 
             <div class="item-card" data-aos="fade-up">
@@ -156,38 +148,44 @@
                     <span class="item-title">Superstore Sales Analytics</span>
                     <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim); margin-top: 10px;">Exploratory Data Analysis (EDA) uncovering profitability trends and customer behavior using Seaborn and Plotly.</p>
-                <div class="project-media">
-                    <img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png" alt="Sales Analysis Output">
-                </div>
+                <p style="color: var(--text-dim); margin-top: 10px;">Advanced EDA uncovering profit trends and customer segments using Seaborn & Plotly.</p>
+                <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
             </div>
         </div>
     </section>
 
     <section id="skills">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <h2>Technical_Toolkit</h2>
             <div class="skills-grid">
-                <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-calculator"></i><span>Statistics</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-chart-line"></i><span>EDA</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-brain"></i><span>ML & Stats</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-eye"></i><span>Deep Learning</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-chart-pie"></i><span>Tableau/Power BI</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-microchip"></i><span>ViT</span></div>
+                <div class="skill-item" data-aos="fade-up"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-calculator"></i><span>Statistics</span></div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-eye"></i><span>Deep Learning</span></div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-chart-pie"></i><span>Tableau / BI</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="connect">
+        <div class="container" data-aos="zoom-in">
+            <h2>Let's_Connect</h2>
+            <div class="connect-box">
+                <h3>Open for Collaborations!</h3>
+                <p style="color: var(--text-dim);">I'm currently looking for Data Science opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
+                <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; font-size: 2rem;">
+                    <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank" style="color: var(--aqua);"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hegdevanashree88@gmail.com" style="color: var(--aqua);"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Vanashreeghegde" target="_blank" style="color: var(--aqua);"><i class="fab fa-github"></i></a>
+                </div>
+                <a href="mailto:hegdevanashree88@gmail.com" class="btn">_send_email</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; Vanashree G. Hegde 😊</p>
-            <div style="font-size: 1.5rem; margin-top: 15px;">
-                <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:hegdevanashree88@gmail.com" style="color: white; margin: 0 10px;"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+        <p class="mono">&copy; 2026 // Vanashree G. Hegde // Built with &hearts;</p>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
