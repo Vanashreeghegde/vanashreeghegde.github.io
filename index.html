@@ -22,11 +22,27 @@
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         .container { width: 90%; max-width: 900px; margin: auto; }
         
-        /* Header */
+        /* Header & Profile Pic Animation (Option 2) */
         header { height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         
-        /* Name in White */
+        .profile-img { 
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; 
+            margin-bottom: 25px; 
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            /* Morphing Border Logic */
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
         h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; color: #ffffff; }
         .tagline { color: var(--accent); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; }
 
@@ -35,91 +51,46 @@
         section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
         h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 40px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Summary & Education */
         .info-text { font-size: 1.1rem; color: var(--text-sec); max-width: 800px; }
         .edu-item { margin-bottom: 25px; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid #1a1a1a; }
         .edu-title { font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
         .edu-meta { color: var(--accent); font-size: 0.9rem; margin-top: 5px; font-weight: 600; }
 
-        /* My Work / Projects */
+        /* Projects */
         .project-row { margin-bottom: 60px; padding: 25px; border-radius: 16px; background: rgba(255,255,255,0.02); border: 1px solid #1a1a1a; }
         .project-title { font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
         .project-desc { color: var(--text-sec); margin: 12px 0; font-size: 1rem; }
         .project-media { width: 100%; max-width: 450px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid #222; margin-top: 20px; }
         .project-media img { width: 100%; height: 250px; object-fit: contain; display: block; }
 
-        /* TECHNICAL SKILLS - VISUAL ANIME GLOW STYLE */
+        /* Skills */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
-        
         .skill-item { 
-            background: #0d0d0d; 
-            border: 1px solid #1a1a1a; 
-            padding: 35px 15px; 
-            border-radius: 16px; 
-            text-align: center; 
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 35px 15px; border-radius: 16px; text-align: center; 
+            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
 
         .skill-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, transparent, transparent, var(--accent));
-            animation: rotateGlow 4s linear infinite;
-            opacity: 0;
-            transition: 0.3s;
+            animation: rotateGlow 4s linear infinite; opacity: 0; transition: 0.3s;
         }
 
         .skill-item:hover::before { opacity: 1; }
+        .skill-item:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
 
-        .skill-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
+        .skill-item i { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-main); position: relative; z-index: 2; }
+        .skill-item:hover i { color: var(--accent); transform: scale(1.1); text-shadow: 0 0 15px var(--accent); }
+        .skill-name { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 2; }
 
-        .skill-item i { 
-            font-size: 2.5rem; 
-            margin-bottom: 15px; 
-            color: var(--text-main);
-            position: relative;
-            z-index: 2;
-        }
+        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
 
-        .skill-item:hover i {
-            color: var(--accent);
-            transform: scale(1.1);
-            text-shadow: 0 0 15px var(--accent);
-        }
-
-        .skill-name { 
-            font-weight: 700; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes rotateGlow {
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Connect Section */
+        /* Connect */
         .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 255, 208, 0.03); }
         .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 40px; font-size: 2.2rem; }
-        .social-icons a { color: var(--text-main); text-decoration: none; transition: 0.3s; }
+        .social-icons a { color: var(--text-main); text-decoration: none; }
         .social-icons a:hover { color: var(--accent); transform: scale(1.2) translateY(-5px); }
 
-        /* Unified Button Theme */
         .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; background: transparent; }
         .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
 
@@ -143,7 +114,7 @@
         <section id="summary" data-aos="fade-up">
             <h2>Summary</h2>
             <p class="info-text">
-                B.Sc. Data Science graduate with a <strong>9.3 CGPA</strong>. Currently pursuing <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. My primary expertise lies in adapting Transformer architectures for high-precision medical image analysis and explainability.
+                B.Sc. Data Science graduate with a <strong>9.3 CGPA</strong>. Currently pursuing <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. My primary project utilizes the Transformer architecture—the same technology behind Large Language Models—but adapted for high-precision medical image analysis and explainability.
             </p>
         </section>
 
@@ -161,25 +132,21 @@
 
         <section id="projects">
             <h2>My Work</h2>
-            
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Medical AI: Cancer Cell Classification <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
                 <p class="project-desc">Implemented Vision Transformers (ViT) with Attention Rollout for explainable histopathology analysis.</p>
                 <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
-
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
                 <p class="project-desc">NLP pipeline to categorize support tickets automatically using TF-IDF and Scikit-learn.</p>
                 <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
             </div>
-
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Fashion Recommendation System <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
                 <p class="project-desc">Computer Vision system utilizing VGG16 for feature extraction and similarity search.</p>
                 <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
             </div>
-
             <div class="project-row" data-aos="fade-up">
                 <div class="project-title">Superstore Sales Analytics <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
                 <p class="project-desc">Advanced EDA uncovering profit trends and customer segments using Plotly.</p>
@@ -204,7 +171,6 @@
         <section id="connect">
             <div class="connect-area" data-aos="zoom-in">
                 <h2>Let's Connect</h2>
-                <p style="color: var(--text-sec)">Open for Data Science roles and research collaborations.</p>
                 <div class="social-icons">
                     <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
