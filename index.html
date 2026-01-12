@@ -35,11 +35,11 @@
         .item-card:hover { border-color: var(--aqua); }
         .item-title { color: var(--aqua); font-weight: bold; font-size: 1.2rem; }
 
-        /* PROJECT IMAGE SIZE SETTINGS (SMALLER VERSION) */
+        /* PROJECT IMAGE SIZE SETTINGS */
         .project-media { 
             width: 100%; 
-            max-width: 450px; /* Limits the width */
-            margin: 20px auto; /* Centers the media */
+            max-width: 450px; 
+            margin: 20px auto; 
             background: #050505; 
             border-radius: 12px; 
             border: 1px solid #222; 
@@ -47,8 +47,8 @@
         }
         .project-media img { 
             width: 100%; 
-            height: 250px; /* Forced smaller height */
-            object-fit: contain; /* Shows full image without cropping */
+            height: 250px; 
+            object-fit: contain; 
             display: block; 
             filter: grayscale(20%); 
             transition: 0.5s; 
@@ -150,6 +150,17 @@
                     <img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp" alt="Fashion Recommendation">
                 </div>
             </div>
+
+            <div class="item-card" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="item-title">Superstore Sales Analytics</span>
+                    <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <p style="color: var(--text-dim); margin-top: 10px;">Exploratory Data Analysis (EDA) uncovering profitability trends and customer behavior using Seaborn and Plotly.</p>
+                <div class="project-media">
+                    <img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png" alt="Sales Analysis Output">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -158,12 +169,13 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-brain"></i><span>ML & Stats</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-eye"></i><span>Deep Learning</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-code"></i><span>OOPS</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-microchip"></i><span>ViT</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="150"><i class="fas fa-calculator"></i><span>Statistics</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-calculator"></i><span>Statistics</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-chart-line"></i><span>EDA</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-brain"></i><span>ML & Stats</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-eye"></i><span>Deep Learning</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-chart-pie"></i><span>Tableau/Power BI</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-microchip"></i><span>ViT</span></div>
             </div>
         </div>
     </section>
