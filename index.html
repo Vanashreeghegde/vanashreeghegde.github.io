@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanashree G. Hegde | Data Science & Medical AI</title>
+    <title>Vanashree G. Hegde | Data Science Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -22,47 +22,38 @@
         .container { width: 85%; max-width: 1000px; margin: auto; }
         
         /* Hero Section */
-        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--aqua); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 255, 208, 0.4); transition: transform 0.5s ease; }
-        .profile-img:hover { transform: scale(1.1) rotate(5deg); }
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -1px; }
-        .highlight { color: var(--aqua); text-shadow: 0 0 10px rgba(0, 255, 208, 0.5); }
-        .subtitle { font-size: 1.3rem; color: var(--text-dim); margin-top: 10px; font-weight: 300; }
+        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--aqua); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 255, 208, 0.4); z-index: 2; transition: 0.5s; }
+        .profile-img:hover { transform: scale(1.1); box-shadow: 0 0 50px var(--aqua); }
+        h1 { font-size: 3.5rem; margin: 0; z-index: 2; }
+        .highlight { color: var(--aqua); }
 
-        /* Buttons */
-        .btn-container { margin-top: 35px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 12px 30px; border: 2px solid var(--aqua); color: var(--aqua); text-decoration: none; font-weight: bold; border-radius: 50px; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .btn:hover { background: var(--aqua); color: black; box-shadow: 0 0 25px var(--aqua); transform: translateY(-3px); }
+        /* Stats Counter Section */
+        .stats-container { display: flex; justify-content: space-around; padding: 50px 0; background: #050505; border-top: 1px solid #111; border-bottom: 1px solid #111; margin: 40px 0; }
+        .stat-item { text-align: center; }
+        .stat-number { display: block; font-size: 2.5rem; font-weight: bold; color: var(--aqua); }
+        .stat-label { color: var(--text-dim); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
 
         /* Summary Section */
-        .summary-box { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid #1a1a1a; line-height: 1.8; font-size: 1.1rem; color: var(--text-dim); }
+        .summary-box { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid #1a1a1a; line-height: 1.8; position: relative; }
 
-        /* Sections */
+        /* Interactive Projects */
         section { padding: 100px 0; }
         h2 { font-size: 2rem; border-left: 5px solid var(--aqua); padding-left: 20px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; }
-
-        /* Project Cards */
-        .project-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        .project-card { background: var(--card-bg); padding: 35px; border-radius: 20px; border: 1px solid #1a1a1a; transition: all 0.4s ease; }
-        .project-card:hover { border-color: var(--aqua); transform: scale(1.02); box-shadow: 0 10px 30px rgba(0, 255, 208, 0.1); }
+        .project-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; transition: 0.4s; margin-bottom: 30px; }
+        .project-card:hover { border-color: var(--aqua); transform: translateX(10px); }
         .tag { font-size: 0.75rem; background: #1a1a1a; padding: 5px 12px; border-radius: 6px; margin-right: 8px; color: var(--aqua); border: 1px solid #333; }
 
-        /* Interactive Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
-        .skill-badge { background: #050505; border: 1px solid #222; padding: 20px; border-radius: 12px; text-align: center; font-weight: bold; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: default; }
-        .skill-badge:hover { border-color: var(--aqua); color: var(--bg); background: var(--aqua); transform: translateY(-10px) rotate(3deg); box-shadow: 0 15px 30px rgba(0, 255, 208, 0.3); }
+        /* Skills Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
+        .skill-item { background: #080808; border: 1px solid #1a1a1a; padding: 30px; border-radius: 15px; text-align: center; transition: 0.3s; cursor: pointer; }
+        .skill-item:hover { background: var(--aqua); color: black; transform: translateY(-10px); }
+        .skill-item i { font-size: 2rem; margin-bottom: 15px; display: block; }
 
-        /* Education & Contact */
-        .item-card { background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid #1a1a1a; margin-bottom: 20px; transition: 0.3s; }
-        .item-card:hover { background: #0f0f0f; }
-        .item-title { color: var(--aqua); font-weight: bold; font-size: 1.2rem; }
-        
-        .socials a { color: white; font-size: 2.5rem; margin: 0 20px; transition: 0.3s ease; display: inline-block; }
-        .socials a:hover { color: var(--aqua); transform: translateY(-5px) scale(1.2); }
+        .btn { padding: 12px 30px; border: 2px solid var(--aqua); color: var(--aqua); text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; display: inline-block; margin-top: 20px; }
+        .btn:hover { background: var(--aqua); color: black; box-shadow: 0 0 20px var(--aqua); }
 
-        footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid #111; }
-
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .container { width: 90%; } }
+        footer { text-align: center; padding: 50px; color: var(--text-dim); border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -71,13 +62,28 @@
         <div class="container" data-aos="zoom-in">
             <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
             <h1>VANASHREE <span class="highlight">G. HEGDE</span></h1>
-            <p class="subtitle">Aspiring Data Scientist</p>
-            <div class="btn-container">
-                <a href="#projects" class="btn">Explore Projects</a>
-                <a href="resume.pdf" class="btn" target="_blank"><i class="fa fa-file-pdf"></i> Download CV</a>
+            <p style="font-size: 1.2rem; color: var(--text-dim);">Data Science graduate specializing in Medical AI</p>
+            <div style="margin-top: 30px;">
+                <a href="#projects" class="btn">Explore My Work</a>
+                <a href="resume.pdf" class="btn" target="_blank">Download CV</a>
             </div>
         </div>
     </header>
+
+    <div class="stats-container">
+        <div class="stat-item" data-aos="fade-up">
+            <span class="stat-number">94.5%</span>
+            <span class="stat-label">Model Accuracy</span>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+            <span class="stat-number">24K+</span>
+            <span class="stat-label">Tickets Processed</span>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">AI Projects</span>
+        </div>
+    </div>
 
     <section id="summary">
         <div class="container" data-aos="fade-up">
@@ -85,27 +91,7 @@
             <div class="summary-box">
                 B.Sc. Data Science graduate with a strong foundation in Python and machine learning. Currently upskilling through an <strong>Advanced Professional Certification in Data Science & AI from IIT Roorkee</strong>. 
                 <br><br>
-                My expertise lies in adapting <strong>Transformer architectures</strong> for high-precision medical diagnostics and explainability. I bridge the gap between complex AI models and clinical trust.
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="container" data-aos="fade-right">
-            <h2>Education & Certification</h2>
-            <div class="item-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <span class="item-title">IIT Roorkee – iHub DivyaSampark</span>
-                    <span style="color: var(--text-dim);">2025 -- Present</span>
-                </div>
-                <p>Advanced Professional Certificate in Data Science & AI (Ongoing)</p>
-            </div>
-            <div class="item-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <span class="item-title">Maharani Cluster University</span>
-                    <span style="color: var(--text-dim);">2021 -- 2024</span>
-                </div>
-                <p>B.Sc. in Data Science | <strong>CGPA: 9.3</strong></p>
+                My expertise lies in adapting <strong>Transformer architectures</strong> for high-precision medical diagnostics and explainability.
             </div>
         </div>
     </section>
@@ -113,29 +99,19 @@
     <section id="projects">
         <div class="container">
             <h2 data-aos="fade-left">Technical Projects</h2>
-            <div class="project-grid">
-                
-                <div class="project-card" data-aos="flip-up">
-                    <span class="item-title">Cancer Cell Classification (ViT)</span>
-                    <p style="color: var(--text-dim); margin: 15px 0;">Achieved 94.5% accuracy using Vision Transformers. Applied Explainable AI (Attention Rollout) to visualize clinical focus regions.</p>
-                    <div style="margin-bottom: 20px;"><span class="tag">PyTorch</span><span class="tag">Vision Transformers</span><span class="tag">Explainable AI</span></div>
-                    <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" class="btn" style="padding: 8px 20px; font-size: 0.9rem;" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
+            
+            <div class="project-card" data-aos="fade-right">
+                <span style="color: var(--aqua); font-weight: bold; font-size: 1.2rem;">Cancer Cell Classification (ViT)</span>
+                <p style="color: var(--text-dim); margin: 15px 0;">Implemented Vision Transformers for histopathology image classification. Used <strong>Attention Rollout</strong> to visualize model focus regions.</p>
+                <div><span class="tag">PyTorch</span><span class="tag">ViT</span><span class="tag">Explainable AI</span></div>
+                <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" class="btn" style="padding: 8px 18px; font-size: 0.8rem;" target="_blank">Source Code</a>
+            </div>
 
-                <div class="project-card" data-aos="flip-up" data-aos-delay="100">
-                    <span class="item-title">CRM Ticket Classification System</span>
-                    <p style="color: var(--text-dim); margin: 15px 0;">NLP pipeline classifying 24,000+ support tickets with 89% accuracy. Features real-time categorization via Streamlit.</p>
-                    <div style="margin-bottom: 20px;"><span class="tag">NLP</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span></div>
-                    <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" class="btn" style="padding: 8px 20px; font-size: 0.9rem;" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
-
-                <div class="project-card" data-aos="flip-up" data-aos-delay="200">
-                    <span class="item-title">Fashion Recommendation System</span>
-                    <p style="color: var(--text-dim); margin: 15px 0;">Visual similarity engine using VGG16 feature extraction and Cosine Similarity for top-N visual matching.</p>
-                    <div style="margin-bottom: 20px;"><span class="tag">Computer Vision</span><span class="tag">VGG16</span><span class="tag">Python</span></div>
-                    <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" class="btn" style="padding: 8px 20px; font-size: 0.9rem;" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                </div>
-
+            <div class="project-card" data-aos="fade-right" data-aos-delay="100">
+                <span style="color: var(--aqua); font-weight: bold; font-size: 1.2rem;">CRM Ticket Classification</span>
+                <p style="color: var(--text-dim); margin: 15px 0;">NLP pipeline classifying customer support tickets with 89% accuracy using TF-IDF and Logistic Regression.</p>
+                <div><span class="tag">NLP</span><span class="tag">Scikit-learn</span><span class="tag">Streamlit</span></div>
+                <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" class="btn" style="padding: 8px 18px; font-size: 0.8rem;" target="_blank">Source Code</a>
             </div>
         </div>
     </section>
@@ -144,40 +120,23 @@
         <div class="container">
             <h2 data-aos="fade-up">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-badge" data-aos="zoom-in">Python</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="50">ML & Stats</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="100">Deep Learning</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="150">SQL</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="200">OOPS</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="250">ViT</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="300">NLP & LLMs</div>
-                <div class="skill-badge" data-aos="zoom-in" data-aos-delay="350">Tableau</div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-brain"></i><span>Deep Learning</span></div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-robot"></i><span>NLP</span></div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-microscope"></i><span>ViT</span></div>
+                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-chart-bar"></i><span>Tableau</span></div>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" style="text-align: center;">
-        <div class="container" data-aos="fade-up">
-            <h2>Let's Connect</h2>
-            <div class="socials">
-                <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p style="color: var(--text-dim); margin-top: 30px;">Bangalore, India | +91 9110294657</p>
         </div>
     </section>
 
     <footer>
-        &copy; Vanashree G. Hegde 😊
+        &copy; 2026 Vanashree G. Hegde | Built for Medical AI
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: false,
-        });
+        AOS.init({ duration: 1000, once: false });
     </script>
 </body>
 </html>
