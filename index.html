@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanashree G Hegde | Medical AI & Vision Transformers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #000000;
+            --card-bg: #0a0a0a;
+            --aqua: #00ffd0;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container { width: 85%; max-width: 1000px; margin: auto; }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .highlight { color: var(--aqua); text-shadow: 0 0 20px rgba(0, 255, 208, 0.3); }
+        p.subtitle { font-size: 1.2rem; color: var(--text-dim); }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            border: 2px solid var(--aqua);
+            color: var(--aqua);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: var(--aqua); color: black; box-shadow: 0 0 30px var(--aqua); }
+
+        /* Sections */
+        section { padding: 100px 0; }
+        h2 { font-size: 2rem; border-left: 4px solid var(--aqua); padding-left: 15px; margin-bottom: 40px; }
+
+        /* Project Card */
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--aqua); transform: translateY(-5px); }
+
+        /* Contact Links */
+        .socials { margin-top: 40px; }
+        .socials a { color: var(--text); font-size: 2.5rem; margin: 0 20px; transition: 0.3s; }
+        .socials a:hover { color: var(--aqua); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-dim); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Hi, I'm <span class="highlight">Vanashree G Hegde</span></h1>
+            <p class="subtitle">Specializing in Medical AI & Vision Transformers</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p style="line-height: 1.8; color: var(--text-dim);">
+                I am a researcher and developer focused on high-precision healthcare technology. 
+                My primary project utilizes the <strong>Transformer architecture</strong>—the same technology behind Large Language Models—but I've adapted it for high-precision medical image analysis and explainability.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Primary Project</h2>
+            <div class="card">
+                <h3 class="highlight">Medical AI & Vision Transformers</h3>
+                <p style="color: var(--text-dim);">Developed a diagnostic tool using Vision Transformers (ViT) to analyze medical scans with high accuracy. The model includes "Attention Maps" to provide explainability, allowing medical professionals to see exactly which features the AI is prioritizing.</p>
+                <p><strong>Tech:</strong> Python, PyTorch, Transformers, Computer Vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I am open to collaborations in AI and Healthcare.</p>
+            <div class="socials">
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN_HERE" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:vanashreehegde@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/YOUR_GITHUB_HERE" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <a href="mailto:vanashreehegde@gmail.com" class="btn">Email Me Directly</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Vanashree G Hegde | Built with Precision
+    </footer>
+
+</body>
+</html>
