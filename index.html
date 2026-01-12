@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanashree G. Hegde | Portfolio</title>
+    <title>Vanashree G. Hegde | Data Science Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -21,38 +21,37 @@
         body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
         .container { width: 85%; max-width: 1000px; margin: auto; }
         
+        /* Header */
         header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
         .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--aqua); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 255, 208, 0.4); }
         h1 { font-size: 3.5rem; margin: 0; }
         .highlight { color: var(--aqua); }
 
         section { padding: 80px 0; }
-        h2 { font-size: 2rem; border-left: 5px solid var(--aqua); padding-left: 20px; margin-bottom: 40px; text-transform: uppercase; }
+        h2 { font-size: 2rem; border-left: 5px solid var(--aqua); padding-left: 20px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .summary-box { background: var(--card-bg); padding: 35px; border-radius: 20px; border: 1px solid #1a1a1a; line-height: 1.8; color: var(--text-dim); }
+        /* General Card Style */
+        .item-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; margin-bottom: 20px; transition: 0.3s; }
+        .item-card:hover { border-color: var(--aqua); }
+        .item-title { color: var(--aqua); font-weight: bold; font-size: 1.2rem; }
 
-        /* Project Styling */
-        .project-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid #1a1a1a; margin-bottom: 50px; }
-        .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .project-title { color: var(--aqua); font-weight: bold; font-size: 1.4rem; }
-        
-        /* Media Output Section */
-        .project-media { width: 100%; background: #111; border-radius: 12px; margin: 20px 0; min-height: 200px; display: flex; align-items: center; justify-content: center; border: 1px dashed #333; overflow: hidden; }
-        .project-media img { width: 100%; height: auto; display: block; }
-        .media-placeholder { color: #444; font-size: 0.9rem; }
+        /* Project Media Section */
+        .project-media { width: 100%; background: #050505; border-radius: 12px; margin: 20px 0; border: 1px solid #222; overflow: hidden; }
+        .project-media img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.5s; }
+        .project-media img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-        .github-link { color: var(--text); font-size: 1.8rem; transition: 0.3s; text-decoration: none; }
+        .github-link { color: var(--text); font-size: 1.8rem; transition: 0.3s; }
         .github-link:hover { color: var(--aqua); transform: scale(1.2); }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
         .skill-item { background: #080808; border: 1px solid #1a1a1a; padding: 25px; border-radius: 15px; text-align: center; transition: 0.3s; }
-        .skill-item:hover { border-color: var(--aqua); transform: translateY(-5px); }
-        .skill-item i { font-size: 2rem; color: var(--aqua); margin-bottom: 10px; display: block; }
+        .skill-item:hover { background: var(--aqua); color: black; transform: translateY(-5px); }
+        .skill-item i { font-size: 2rem; margin-bottom: 10px; display: block; }
 
         .btn { padding: 12px 30px; border: 2px solid var(--aqua); color: var(--aqua); text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; display: inline-block; margin-top: 20px; }
-        .btn:hover { background: var(--aqua); color: black; }
+        .btn:hover { background: var(--aqua); color: black; box-shadow: 0 0 20px var(--aqua); }
 
-        footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid #111; }
+        footer { text-align: center; padding: 60px; color: var(--text-dim); border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -62,8 +61,9 @@
             <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
             <h1>VANASHREE <span class="highlight">G. HEGDE</span></h1>
             <p style="font-size: 1.2rem; color: var(--text-dim);">Aspiring Data Scientist</p>
-            <div style="margin-top: 20px;">
-                <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="resume.pdf" class="btn" target="_blank">Download CV</a>
             </div>
         </div>
     </header>
@@ -71,8 +71,30 @@
     <section id="summary">
         <div class="container" data-aos="fade-up">
             <h2>Summary</h2>
-            <div class="summary-box">
+            <div class="item-card">
+                <p style="line-height: 1.8; color: var(--text-dim); font-size: 1.1rem; margin: 0;">
                 B.Sc. Data Science graduate with a strong foundation in Python and machine learning. Currently upskilling through an <strong>Advanced Professional Certification in Data Science & AI from IIT Roorkee</strong>. My expertise lies in adapting Transformer architectures for high-precision medical diagnostics and explainability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container" data-aos="fade-up">
+            <h2>Education & Certification</h2>
+            <div class="item-card">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <span class="item-title">IIT Roorkee – iHub DivyaSampark</span>
+                    <span style="color: var(--text-dim);">2025 -- Present</span>
+                </div>
+                <p>Advanced Professional Certificate in Data Science & AI (Ongoing)</p>
+            </div>
+            <div class="item-card">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <span class="item-title">Maharani Cluster University</span>
+                    <span style="color: var(--text-dim);">2021 -- 2024</span>
+                </div>
+                <p>B.Sc. in Data Science | <strong>CGPA: 9.3</strong></p>
             </div>
         </div>
     </section>
@@ -81,39 +103,38 @@
         <div class="container">
             <h2>Technical Projects</h2>
             
-            <div class="project-card" data-aos="fade-up">
-                <div class="project-header">
-                    <span class="project-title">Cancer Cell Classification (ViT)</span>
+            <div class="item-card" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="item-title">Cancer Cell Classification (ViT)</span>
                     <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim);">Vision Transformer model for histopathology classification using Explainable AI (Attention Rollout).</p>
+                <p style="color: var(--text-dim); margin-top: 10px;">Implemented Vision Transformers (ViT) with Attention Rollout for explainable histopathology analysis.</p>
                 <div class="project-media">
-                    <img src="output1.png" alt="Cancer Classification Result">
+                    <img src="output1.png" alt="Cancer Classification Output">
                 </div>
             </div>
 
-            <div class="project-card" data-aos="fade-up">
-                <div class="project-header">
-                    <span class="project-title">CRM Ticket Classification</span>
+            <div class="item-card" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="item-title">CRM Ticket Classification</span>
                     <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim);">NLP pipeline classifying 24,000+ support tickets with 89% accuracy.</p>
+                <p style="color: var(--text-dim); margin-top: 10px;">NLP pipeline for automatic categorization of support tickets using TF-IDF and Scikit-learn.</p>
                 <div class="project-media">
-                    <img src="output2.png" alt="CRM Classification Result">
+                    <img src="output2.png" alt="CRM Classification Output">
                 </div>
             </div>
 
-            <div class="project-card" data-aos="fade-up">
-                <div class="project-header">
-                    <span class="project-title">Fashion Recommendation System</span>
+            <div class="item-card" data-aos="fade-up">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="item-title">Fashion Recommendation System</span>
                     <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" class="github-link" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
-                <p style="color: var(--text-dim);">Similarity-based engine using VGG16 feature extraction and Cosine Similarity.</p>
+                <p style="color: var(--text-dim); margin-top: 10px;">Computer Vision system utilizing VGG16 for feature extraction and similarity ranking.</p>
                 <div class="project-media">
-                    <img src="output3.png" alt="Fashion Recommendation Result">
+                    <img src="output3.png" alt="Fashion Recommendation Output">
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -122,17 +143,23 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span>Python</span></div>
-                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-brain"></i><span>ML & Stats</span></div>
-                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-network-wired"></i><span>Deep Learning</span></div>
-                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-code"></i><span>OOPS</span></div>
-                <div class="skill-item" data-aos="zoom-in"><i class="fas fa-eye"></i><span>ViT</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-brain"></i><span>ML & Stats</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-eye"></i><span>Deep Learning</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-code"></i><span>OOPS</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-microchip"></i><span>ViT</span></div>
             </div>
         </div>
     </section>
 
     <footer>
-        &copy; Vanashree G. Hegde 😊
+        <div class="container">
+            <p>&copy; Vanashree G. Hegde 😊</p>
+            <div style="font-size: 1.5rem; margin-top: 15px;">
+                <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:hegdevanashree88@gmail.com" style="color: white; margin: 0 10px;"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
