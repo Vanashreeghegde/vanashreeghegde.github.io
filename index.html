@@ -11,7 +11,8 @@
     <style>
         :root {
             --bg: #0a0a0a;
-            --accent: #00ffd0;
+            --accent: #007bff; /* Electric Blue */
+            --accent-glow: rgba(0, 123, 255, 0.3);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
             --card-bg: #0d0d0d;
@@ -23,9 +24,11 @@
         
         /* Header */
         header { height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(0, 255, 208, 0.2); }
+        .profile-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; }
         .tagline { color: var(--accent); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; }
+
+        .header-btns { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
         section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
         h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 40px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
@@ -78,7 +81,7 @@
         .skill-item:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(0, 255, 208, 0.25);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
         .skill-item i { 
@@ -109,13 +112,15 @@
         }
 
         /* Connect Section */
-        .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 255, 208, 0.03); }
+        .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 123, 255, 0.03); }
         .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 40px; font-size: 2.2rem; }
         .social-icons a { color: var(--text-main); text-decoration: none; transition: 0.3s; }
         .social-icons a:hover { color: var(--accent); transform: scale(1.2) translateY(-5px); }
 
-        .btn { margin-top: 20px; padding: 12px 40px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
-        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent); }
+        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+        .btn:hover { background: var(--accent); color: white; box-shadow: 0 0 20px var(--accent-glow); }
+        .btn-fill { background: var(--accent); color: white; }
+        .btn-fill:hover { background: transparent; color: var(--accent); }
 
         footer { text-align: center; padding: 50px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 1px; }
     </style>
@@ -126,7 +131,10 @@
         <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
         <h1>VANASHREE G. <span style="color: var(--accent)">HEGDE</span></h1>
         <div class="tagline">Data Scientist • Medical AI Specialization</div>
-        <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+        <div class="header-btns">
+            <a href="#projects" class="btn btn-fill">My Work</a>
+            <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+        </div>
     </header>
 
     <div class="container">
