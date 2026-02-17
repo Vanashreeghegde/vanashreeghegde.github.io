@@ -3,175 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanashree Hegde | Portfolio</title>
+    <title>Vanashree Hegde | AI & Data Science Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         :root {
-            --bg: #0a0a0a;
+            --bg: #050505;
             --accent: #00ffd0; /* Cyber Green */
             --accent-glow: rgba(0, 255, 208, 0.3);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
-            --card-bg: #0d0d0d;
+            --card-bg: rgba(20, 20, 20, 0.8);
         }
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
+        html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
-        .container { width: 90%; max-width: 900px; margin: auto; }
+        
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
         
         /* Header */
-        header { height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         
-        /* OPTION 1: BREATHING PULSE ANIMATION */
         .profile-img { 
-            width: 150px; 
-            height: 150px; 
-            border-radius: 50%;
-            object-fit: cover; 
-            margin-bottom: 25px; 
-            border: 3px solid var(--accent);
-            animation: breathing 3s ease-in-out infinite;
+            width: 160px; height: 160px; border-radius: 50%;
+            object-fit: cover; margin-bottom: 25px; 
+            border: 4px solid var(--accent);
+            animation: breathing 4s ease-in-out infinite;
         }
 
         @keyframes breathing {
             0% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
-            50% { box-shadow: 0 0 25px var(--accent); transform: scale(1.03); }
+            50% { box-shadow: 0 0 30px var(--accent); transform: scale(1.05); }
             100% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
         }
 
-        /* Name in Pure White */
-        h1 { font-size: 3rem; font-weight: 700; margin: 0; letter-spacing: -1px; color: #ffffff; text-transform: uppercase; }
-        .tagline { color: var(--accent); font-weight: 400; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; }
+        h1 { font-size: 3.5rem; font-weight: 800; margin: 0; letter-spacing: -2px; color: #ffffff; text-transform: uppercase; }
+        .tagline { color: var(--accent); font-weight: 400; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem; margin-top: 15px; min-height: 1.5em; }
 
-        .header-btns { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .header-btns { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
-        section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
-        h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 40px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+        section { padding: 100px 0; border-top: 1px solid #1a1a1a; }
+        h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 50px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 15px; }
+        h2::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, var(--accent), transparent); }
 
         .info-text { font-size: 1.1rem; color: var(--text-sec); max-width: 800px; }
-        .edu-item { margin-bottom: 25px; padding: 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid #1a1a1a; }
-        .edu-title { font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
-        .edu-meta { color: var(--accent); font-size: 0.9rem; margin-top: 5px; font-weight: 600; }
+        
+        /* Project Cards */
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .project-row { 
+            padding: 30px; border-radius: 20px; background: var(--card-bg); 
+            border: 1px solid #1a1a1a; backdrop-filter: blur(10px);
+        }
+        .project-row:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        .project-title { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+        .project-desc { color: var(--text-sec); margin: 20px 0; font-size: 1.05rem; }
+        
+        .stat-group { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--accent-glow); }
 
-        /* Project Rows */
-        .project-row { margin-bottom: 60px; padding: 25px; border-radius: 16px; background: rgba(255,255,255,0.02); border: 1px solid #1a1a1a; }
-        .project-title { font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
-        .project-desc { color: var(--text-sec); margin: 12px 0; font-size: 1rem; }
-        .project-media { width: 100%; max-width: 450px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid #222; margin-top: 20px; }
-        .project-media img { width: 100%; height: 250px; object-fit: contain; display: block; }
+        .project-media { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #222; margin-top: 20px; }
+        .project-media img { width: 100%; height: auto; display: block; filter: grayscale(20%); }
+        .project-media:hover img { filter: grayscale(0%); }
 
-        /* TECHNICAL SKILLS - VISUAL ANIME GLOW */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; }
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
         .skill-item { 
-            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 35px 15px; border-radius: 16px; text-align: center; 
-            position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 30px 10px; border-radius: 16px; 
+            text-align: center; display: flex; flex-direction: column; align-items: center;
         }
+        .skill-item:hover { border-color: var(--accent); background: #111; box-shadow: 0 0 20px var(--accent-glow); }
+        .skill-item i { font-size: 2.2rem; margin-bottom: 12px; color: var(--text-main); }
+        .skill-item:hover i { color: var(--accent); }
+        .skill-name { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
 
-        .skill-item::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(transparent, transparent, transparent, var(--accent));
-            animation: rotateGlow 4s linear infinite; opacity: 0; transition: 0.3s;
+        /* Buttons */
+        .btn { padding: 14px 40px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; display: inline-block; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; background: transparent; }
+        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent); }
+
+        /* Contact Area */
+        .connect-area { text-align: center; padding: 80px 40px; border-radius: 30px; background: linear-gradient(145deg, #0d0d0d, #050505); border: 1px solid #1a1a1a; }
+        .social-icons { margin-top: 40px; display: flex; justify-content: center; gap: 50px; font-size: 2.5rem; }
+        .social-icons a { color: var(--text-main); }
+        .social-icons a:hover { color: var(--accent); transform: translateY(-8px); }
+
+        footer { text-align: center; padding: 60px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 2px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .social-icons { gap: 30px; }
         }
-
-        .skill-item:hover::before { opacity: 1; }
-        .skill-item:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
-
-        .skill-item i { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-main); position: relative; z-index: 2; }
-        .skill-item:hover i { color: var(--accent); transform: scale(1.1); text-shadow: 0 0 15px var(--accent); }
-        .skill-name { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 2; }
-
-        @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
-
-        /* Unified Buttons */
-        .btn { padding: 12px 35px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 50px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; background: transparent; cursor: pointer; }
-        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent-glow); }
-
-        /* Footer & Socials */
-        .connect-area { text-align: center; padding: 60px; border: 1px dashed var(--accent); border-radius: 24px; background: rgba(0, 255, 208, 0.03); }
-        .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 40px; font-size: 2.2rem; }
-        .social-icons a { color: var(--text-main); text-decoration: none; }
-        .social-icons a:hover { color: var(--accent); transform: scale(1.2) translateY(-5px); }
-
-        footer { text-align: center; padding: 50px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <header data-aos="zoom-in">
         <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
         <h1>VANASHREE G HEGDE</h1>
-        <div class="tagline">Aspiring Data Scientist</div>
+        <div class="tagline"><span id="typewriter"></span></div>
         <div class="header-btns">
-            <a href="#projects" class="btn">My Work</a>
-            <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="resume.pdf" class="btn" target="_blank">Download CV</a>
         </div>
     </header>
 
     <div class="container">
         
         <section id="summary" data-aos="fade-up">
-            <h2>Summary</h2>
+            <h2>About Me</h2>
             <p class="info-text">
-                B.Sc. Data Science graduate.Currently pursuing <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong> and build end-to end projects that can be deployable . Very exicited to connect and contribute in data science industry.
+                B.Sc. Data Science graduate currently pursuing an <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. I specialize in building end-to-end AI solutions, with a deep focus on <strong>Vision Transformers (ViT)</strong> and <strong>Medical Image Explainability</strong>.
             </p>
         </section>
 
-        <section id="education" data-aos="fade-up">
-            <h2>Education</h2>
-            <div class="edu-item">
-                <div class="edu-title">IIT Roorkee – iHub DivyaSampark</div>
-                <div class="edu-meta">Advanced Professional Certificate in Data Science & AI | 2025 – Present</div>
-            </div>
-            <div class="edu-item">
-                <div class="edu-title">Maharani Cluster University</div>
-                <div class="edu-meta">B.Sc. in Data Science | 2021 – 2024</div>
-            </div>
-        </section>
-
         <section id="projects">
-            <h2>My Work</h2>
-            <div class="project-row" data-aos="fade-up">
-                <div class="project-title">Medical AI: Cancer Cell Classification <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Explaining Vision Transformer (ViT) decisions in cancer detection using Attention Rollout mechanisms.</p>
-                <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
-            </div>
-            <div class="project-row" data-aos="fade-up">
-                <div class="project-title">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Automated ticketing system using NLP and ML to streamline customer support operations.</p>
-                <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
-            </div>
-            <div class="project-row" data-aos="fade-up">
-                <div class="project-title">Fashion Recommendation System <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Deep Learning model using VGG16 to suggest similar clothing items based on visual features.</p>
-                <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
-            </div>
-            <div class="project-row" data-aos="fade-up">
-                <div class="project-title">Superstore Sales Analytics <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a></div>
-                <p class="project-desc">Comprehensive data analysis project uncovering regional profit trends and sales forecasts.</p>
-                <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+
+                <div class="project-row" data-aos="fade-up">
+                    <div class="project-title">
+                        ISP Churn & Technical Telemetry
+                        <a href="https://github.com/Vanashreeghegde" target="_blank" style="color: var(--accent)"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="stat-group">
+                        <span class="stat-pill">Power BI</span>
+                        <span class="stat-pill">DAX</span>
+                        <span class="stat-pill">Feature Engineering</span>
+                    </div>
+                    <p class="project-desc">Interactive executive dashboard analyzing network performance. Correlated latency peaks (>150ms) and packet loss with customer churn patterns to drive retention strategies.</p>
+                    <div class="project-media"><img src="churn_dashboard.jpg" alt="ISP Churn Analysis Dashboard"></div>
+                </div>
+
+                <div class="project-row" data-aos="fade-up">
+                    <div class="project-title">
+                        Medical AI: Cancer Cell Classification
+                        <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="stat-group">
+                        <span class="stat-pill">Vision Transformers</span>
+                        <span class="stat-pill">PyTorch</span>
+                        <span class="stat-pill">Explainable AI</span>
+                    </div>
+                    <p class="project-desc">Utilizing the Transformer architecture for high-precision medical image analysis. Implemented Attention Rollout to visualize and explain model decision paths in cancer detection.</p>
+                    <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg" alt="Medical AI Analysis"></div>
+                </div>
+
             </div>
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2>Tech Stack</h2>
             <div class="skills-grid">
                 <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span class="skill-name">Python</span></div>
                 <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-brain"></i><span class="skill-name">ML & AI</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-network-wired"></i><span class="skill-name">Deep Learning</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-microchip"></i><span class="skill-name">ViT / CV</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-project-diagram"></i><span class="skill-name">Deep Learning</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-eye"></i><span class="skill-name">Computer Vision</span></div>
                 <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-database"></i><span class="skill-name">SQL</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-chart-line"></i><span class="skill-name">Stats / EDA</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-project-diagram"></i><span class="skill-name">Tableau / BI</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="700"><i class="fas fa-laptop-code"></i><span class="skill-name">OOPS</span></div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-chart-bar"></i><span class="skill-name">Power BI / Tableau</span></div>
             </div>
         </section>
 
         <section id="connect">
             <div class="connect-area" data-aos="zoom-in">
-               <h2>Let's Connect</h2>
+                <h2>Let's Build Something</h2>
                 <p style="color: var(--text-sec)">Open for Data Science roles and research collaborations.</p>
                 <div class="social-icons">
                     <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -184,12 +193,59 @@
     </div>
 
     <footer>
-        <p>&copy;VANASHREE G HEGDE😊</p>
+        <p>&copy; 2026 VANASHREE G HEGDE | ENGINEERED WITH PRECISION</p>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // Typewriter Effect
+        const textElement = document.getElementById("typewriter");
+        const phraselist = ["Aspiring Data Scientist", "Vision Transformer Specialist", "AI Research Enthusiast"];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phraselist[phraseIdx];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phraselist.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, isDeleting ? 50 : 100);
+            }
+        }
+        type();
+
+        // Particles Configuration
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80 },
+                "color": { "value": "#00ffd0" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffd0", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
+            }
+        });
     </script>
 </body>
 </html>
