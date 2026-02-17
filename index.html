@@ -10,11 +10,10 @@
     
     <style>
         :root {
-            /* Mixed Tech Blue and Cyber Green */
             --bg: #020a10; 
             --accent: #00ffd0; 
             --tech-blue: #0077ff;
-            --accent-glow: rgba(0, 255, 208, 0.3);
+            --accent-glow: rgba(0, 255, 208, 0.6);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
             --card-bg: rgba(10, 25, 30, 0.8);
@@ -24,53 +23,57 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Spikey Tech Background */
         #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; background: radial-gradient(circle at center, #0a1f30 0%, #020a10 100%); }
-        
         .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
         
         header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        
+        /* GLOWING NAME EFFECT */
+        .glowing-name { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            margin: 0; 
+            letter-spacing: -1px; 
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+            animation: text-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes text-pulse {
+            0%, 100% { text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow); }
+            50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent-glow); }
+        }
+
         .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 3px solid var(--accent); animation: breathing 4s ease-in-out infinite; }
 
         @keyframes breathing {
             0% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
-            50% { box-shadow: 0 0 25px var(--accent); transform: scale(1.03); }
+            50% { box-shadow: 0 0 30px var(--accent); transform: scale(1.05); }
             100% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
         }
 
-        h1 { font-size: 3rem; font-weight: 800; margin: 0; letter-spacing: -1px; text-transform: uppercase; }
         .tagline { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; min-height: 1.5em; font-weight: 600; }
 
         section { padding: 80px 0; border-top: 1px solid rgba(0, 255, 208, 0.1); }
         h2 { font-size: 1.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
 
-        /* Skills/Statistics */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
         .skill-item { background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.1); padding: 25px; border-radius: 12px; text-align: center; }
         .skill-item:hover { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-5px); }
         .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
         .skill-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Project Layout */
-        .project-row { 
-            display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; 
-            background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.05); margin-bottom: 30px; align-items: center;
-        }
+        .edu-item { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 15px; border-left: 3px solid var(--accent); }
+
+        .project-row { display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.05); margin-bottom: 30px; align-items: center; }
         .project-info { flex: 1; min-width: 300px; }
         .project-media { width: 280px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid #111; flex-shrink: 0; }
         .project-media img { width: 100%; height: 100%; object-fit: cover; }
 
         .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; border: 1px solid var(--accent-glow); display: inline-block; margin-bottom: 8px; }
 
-        /* Education */
-        .edu-item { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 15px; border-left: 3px solid var(--accent); }
-
-        /* Dynamic Connect Box */
-        .connect-box { 
-            background: linear-gradient(135deg, rgba(0, 255, 208, 0.05), rgba(0, 119, 255, 0.05));
-            padding: 60px; border-radius: 30px; border: 1px solid var(--accent); text-align: center;
-            box-shadow: 0 0 20px rgba(0, 255, 208, 0.1);
-        }
+        .connect-box { background: linear-gradient(135deg, rgba(0, 255, 208, 0.05), rgba(0, 119, 255, 0.05)); padding: 60px; border-radius: 30px; border: 1px solid var(--accent); text-align: center; box-shadow: 0 0 20px rgba(0, 255, 208, 0.1); }
 
         .btn { padding: 12px 30px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; font-size: 0.75rem; background: transparent; }
         .btn:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); }
@@ -88,7 +91,7 @@
 
     <header data-aos="zoom-in">
         <img src="profile.jpeg" alt="Vanashree" class="profile-img">
-        <h1>VANASHREE G HEGDE</h1>
+        <h1 class="glowing-name">VANASHREE G HEGDE</h1>
         <div class="tagline"><span id="typewriter"></span></div>
         <div style="margin-top:30px; display:flex; gap:15px;">
             <a href="#projects" class="btn">Portfolio</a>
@@ -142,21 +145,11 @@
                 </div>
                 <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
-
-            <div class="project-row" data-aos="fade-right">
-                <div class="project-info">
-                    <div style="font-weight:700; font-size:1.2rem;">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank"><i class="fab fa-github"></i></a></div>
-                    <div style="margin: 10px 0;"><span class="stat-pill">NLP</span><span class="stat-pill">Scikit-Learn</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Automating support tickets categorization using Natural Language Processing.</p>
-                </div>
-                <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
-            </div>
         </section>
 
         <section id="connect">
             <div class="connect-box" data-aos="zoom-in">
                 <h2 style="border:none; margin-bottom:10px;">Let's Connect</h2>
-                <p style="color: var(--text-sec); margin-bottom:25px;">Open for Data Science roles and research collaborations.</p>
                 <div class="social-icons">
                     <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
@@ -174,7 +167,6 @@
     <script>
         AOS.init({ duration: 800 });
         
-        // Typewriter Effect
         const text = document.getElementById("typewriter");
         const list = ["Aspiring Data Scientist", "Data Analyst", "AI Aspirant"];
         let pIdx = 0, cIdx = 0, del = false;
@@ -187,26 +179,17 @@
         }
         type();
 
-        // Spikey Tech Particles Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": ["#00ffd0", "#0077ff"] }, // Mix of Green and Blue
-                "shape": { "type": "triangle" }, // Spikey shapes
+                "number": { "value": 80 },
+                "color": { "value": ["#00ffd0", "#0077ff"] },
+                "shape": { "type": "triangle" },
                 "opacity": { "value": 0.4 },
                 "size": { "value": 3, "random": true },
-                "line_linked": { 
-                    "enable": true, 
-                    "distance": 140, 
-                    "color": "#00ffd0", 
-                    "opacity": 0.3, 
-                    "width": 1.5 
-                },
-                "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+                "line_linked": { "enable": true, "distance": 140, "color": "#00ffd0", "opacity": 0.3, "width": 1.5 },
+                "move": { "enable": true, "speed": 3, "out_mode": "out" }
             },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" } }
-            }
+            "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } }
         });
     </script>
 </body>
