@@ -11,101 +11,57 @@
     <style>
         :root {
             --bg: #050505;
-            --accent: #00ffd0; /* Cyber Green */
+            --accent: #00ffd0;
             --accent-glow: rgba(0, 255, 208, 0.3);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
-            --card-bg: rgba(20, 20, 20, 0.8);
+            --card-bg: rgba(20, 20, 20, 0.9);
         }
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Particle Background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
-        }
-
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
         .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
         
-        /* Header */
         header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        
-        .profile-img { 
-            width: 160px; height: 160px; border-radius: 50%;
-            object-fit: cover; margin-bottom: 25px; 
-            border: 4px solid var(--accent);
-            animation: breathing 4s ease-in-out infinite;
-        }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 3px solid var(--accent); animation: breathing 4s ease-in-out infinite; }
 
         @keyframes breathing {
             0% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
-            50% { box-shadow: 0 0 30px var(--accent); transform: scale(1.05); }
+            50% { box-shadow: 0 0 25px var(--accent); transform: scale(1.03); }
             100% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
         }
 
-        h1 { font-size: 3.5rem; font-weight: 800; margin: 0; letter-spacing: -2px; color: #ffffff; text-transform: uppercase; }
-        .tagline { color: var(--accent); font-weight: 400; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem; margin-top: 15px; min-height: 1.5em; }
+        h1 { font-size: 3rem; font-weight: 800; margin: 0; letter-spacing: -1px; text-transform: uppercase; }
+        .tagline { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; min-height: 1.5em; }
 
-        .header-btns { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
+        h2 { font-size: 1.4rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
 
-        section { padding: 100px 0; border-top: 1px solid #1a1a1a; }
-        h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 50px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 15px; }
-        h2::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, var(--accent), transparent); }
-
-        .info-text { font-size: 1.1rem; color: var(--text-sec); max-width: 800px; }
-        
-        /* Project Cards */
-        .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        /* Project Styling - Smaller Images */
         .project-row { 
-            padding: 30px; border-radius: 20px; background: var(--card-bg); 
-            border: 1px solid #1a1a1a; backdrop-filter: blur(10px);
+            display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; 
+            background: var(--card-bg); border: 1px solid #1a1a1a; margin-bottom: 30px; align-items: center;
         }
-        .project-row:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
-        .project-title { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
-        .project-desc { color: var(--text-sec); margin: 20px 0; font-size: 1.05rem; }
-        
-        .stat-group { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--accent-glow); }
+        .project-info { flex: 1; min-width: 300px; }
+        .project-media { width: 280px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid #333; flex-shrink: 0; }
+        .project-media img { width: 100%; height: 100%; object-fit: cover; }
 
-        .project-media { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #222; margin-top: 20px; }
-        .project-media img { width: 100%; height: auto; display: block; filter: grayscale(20%); }
-        .project-media:hover img { filter: grayscale(0%); }
+        .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; border: 1px solid var(--accent-glow); display: inline-block; margin-bottom: 8px; }
+        .btn { padding: 12px 30px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; background: transparent; }
+        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 15px var(--accent); }
 
-        /* Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
-        .skill-item { 
-            background: #0d0d0d; border: 1px solid #1a1a1a; padding: 30px 10px; border-radius: 16px; 
-            text-align: center; display: flex; flex-direction: column; align-items: center;
-        }
-        .skill-item:hover { border-color: var(--accent); background: #111; box-shadow: 0 0 20px var(--accent-glow); }
-        .skill-item i { font-size: 2.2rem; margin-bottom: 12px; color: var(--text-main); }
-        .skill-item:hover i { color: var(--accent); }
-        .skill-name { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .skill-item { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 20px; border-radius: 12px; text-align: center; }
+        .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
 
-        /* Buttons */
-        .btn { padding: 14px 40px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; display: inline-block; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; background: transparent; }
-        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 20px var(--accent); }
+        .social-icons { display: flex; justify-content: center; gap: 40px; font-size: 2rem; margin-top: 30px; }
+        .social-icons a { color: white; }
+        .social-icons a:hover { color: var(--accent); transform: translateY(-5px); }
 
-        /* Contact Area */
-        .connect-area { text-align: center; padding: 80px 40px; border-radius: 30px; background: linear-gradient(145deg, #0d0d0d, #050505); border: 1px solid #1a1a1a; }
-        .social-icons { margin-top: 40px; display: flex; justify-content: center; gap: 50px; font-size: 2.5rem; }
-        .social-icons a { color: var(--text-main); }
-        .social-icons a:hover { color: var(--accent); transform: translateY(-8px); }
-
-        footer { text-align: center; padding: 60px; color: var(--text-sec); font-size: 0.8rem; letter-spacing: 2px; }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .social-icons { gap: 30px; }
-        }
+        footer { text-align: center; padding: 40px; color: var(--text-sec); font-size: 0.75rem; }
     </style>
 </head>
 <body>
@@ -113,137 +69,116 @@
     <div id="particles-js"></div>
 
     <header data-aos="zoom-in">
-        <img src="profile.jpeg" alt="Vanashree G. Hegde" class="profile-img">
+        <img src="profile.jpeg" alt="Vanashree" class="profile-img">
         <h1>VANASHREE G HEGDE</h1>
         <div class="tagline"><span id="typewriter"></span></div>
-        <div class="header-btns">
-            <a href="#projects" class="btn">View Projects</a>
-            <a href="resume.pdf" class="btn" target="_blank">Download CV</a>
+        <div style="margin-top:30px; display:flex; gap:15px;">
+            <a href="#projects" class="btn">View Work</a>
+            <a href="resume.pdf" class="btn" target="_blank">Resume</a>
         </div>
     </header>
 
     <div class="container">
         
-        <section id="summary" data-aos="fade-up">
-            <h2>About Me</h2>
-            <p class="info-text">
-                B.Sc. Data Science graduate currently pursuing an <strong>Advanced Certification in Data Science & AI from IIT Roorkee</strong>. I specialize in building end-to-end AI solutions, with a deep focus on <strong>Vision Transformers (ViT)</strong> and <strong>Medical Image Explainability</strong>.
-            </p>
-        </section>
-
         <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
+            <h2>Selected Projects</h2>
 
-                <div class="project-row" data-aos="fade-up">
-                    <div class="project-title">
-                        ISP Churn & Technical Telemetry
-                        <a href="https://github.com/Vanashreeghegde" target="_blank" style="color: var(--accent)"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <div class="stat-group">
-                        <span class="stat-pill">Power BI</span>
-                        <span class="stat-pill">DAX</span>
-                        <span class="stat-pill">Feature Engineering</span>
-                    </div>
-                    <p class="project-desc">Interactive executive dashboard analyzing network performance. Correlated latency peaks (>150ms) and packet loss with customer churn patterns to drive retention strategies.</p>
-                    <div class="project-media"><img src="churn_dashboard.jpg" alt="ISP Churn Analysis Dashboard"></div>
+            <div class="project-row" data-aos="fade-right">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">ISP Churn & Telemetry Dashboard</div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Power BI</span><span class="stat-pill">DAX</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Analyzing latency and packet loss thresholds to predict customer churn in real-time.</p>
                 </div>
-
-                <div class="project-row" data-aos="fade-up">
-                    <div class="project-title">
-                        Medical AI: Cancer Cell Classification
-                        <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank" style="color: var(--accent)"><i class="fab fa-github"></i></a>
-                    </div>
-                    <div class="stat-group">
-                        <span class="stat-pill">Vision Transformers</span>
-                        <span class="stat-pill">PyTorch</span>
-                        <span class="stat-pill">Explainable AI</span>
-                    </div>
-                    <p class="project-desc">Utilizing the Transformer architecture for high-precision medical image analysis. Implemented Attention Rollout to visualize and explain model decision paths in cancer detection.</p>
-                    <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg" alt="Medical AI Analysis"></div>
-                </div>
-
+                <div class="project-media"><img src="churn_dashboard.jpg" alt="ISP Dashboard"></div>
             </div>
+
+            <div class="project-row" data-aos="fade-left">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">Medical AI: Cancer ViT <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Vision Transformers</span><span class="stat-pill">PyTorch</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">High-precision cancer cell classification with explainable Attention Rollout maps.</p>
+                </div>
+                <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
+            </div>
+
+            <div class="project-row" data-aos="fade-right">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">NLP</span><span class="stat-pill">Scikit-Learn</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Automated support system using NLP to categorize customer complaints and prioritize tickets.</p>
+                </div>
+                <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
+            </div>
+
+            <div class="project-row" data-aos="fade-left">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">Fashion Recommendation <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">VGG16</span><span class="stat-pill">Deep Learning</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Image-based similarity engine using visual feature extraction for fashion items.</p>
+                </div>
+                <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
+            </div>
+
+            <div class="project-row" data-aos="fade-right">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">Superstore Sales Analysis <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">EDA</span><span class="stat-pill">Tableau</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Discovering regional profit trends and seasonal sales forecasting via data visualization.</p>
+                </div>
+                <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
+            </div>
+
         </section>
 
         <section id="skills">
-            <h2>Tech Stack</h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
-                <div class="skill-item" data-aos="zoom-in"><i class="fab fa-python"></i><span class="skill-name">Python</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-brain"></i><span class="skill-name">ML & AI</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-project-diagram"></i><span class="skill-name">Deep Learning</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-eye"></i><span class="skill-name">Computer Vision</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-database"></i><span class="skill-name">SQL</span></div>
-                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-chart-bar"></i><span class="skill-name">Power BI / Tableau</span></div>
+                <div class="skill-item"><i class="fab fa-python"></i><div class="skill-name">Python</div></div>
+                <div class="skill-item"><i class="fas fa-brain"></i><div class="skill-name">AI / ML</div></div>
+                <div class="skill-item"><i class="fas fa-microchip"></i><div class="skill-name">Deep Learning</div></div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i><div class="skill-name">Power BI</div></div>
+                <div class="skill-item"><i class="fas fa-database"></i><div class="skill-name">SQL</div></div>
             </div>
         </section>
 
-        <section id="connect">
-            <div class="connect-area" data-aos="zoom-in">
-                <h2>Let's Build Something</h2>
-                <p style="color: var(--text-sec)">Open for Data Science roles and research collaborations.</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+        <section id="connect" style="text-align:center;">
+            <h2>Let's Connect</h2>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </section>
-
     </div>
 
-    <footer>
-        <p>&copy; 2026 VANASHREE G HEGDE | ENGINEERED WITH PRECISION</p>
-    </footer>
+    <footer>&copy; 2026 VANASHREE G HEGDE</footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Typewriter Effect
-        const textElement = document.getElementById("typewriter");
-        const phraselist = ["Aspiring Data Scientist", "Vision Transformer Specialist", "AI Research Enthusiast"];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-
+        AOS.init({ duration: 800 });
+        
+        // Typewriter
+        const text = document.getElementById("typewriter");
+        const list = ["Data Scientist", "Vision Transformer Specialist", "AI Researcher"];
+        let pIdx = 0, cIdx = 0, del = false;
         function type() {
-            const currentPhrase = phraselist[phraseIdx];
-            if (isDeleting) {
-                textElement.textContent = currentPhrase.substring(0, charIdx - 1);
-                charIdx--;
-            } else {
-                textElement.textContent = currentPhrase.substring(0, charIdx + 1);
-                charIdx++;
-            }
-
-            if (!isDeleting && charIdx === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, 2000);
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phraselist.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? 50 : 100);
-            }
+            const current = list[pIdx];
+            text.textContent = current.substring(0, del ? cIdx-- : cIdx++);
+            if (!del && cIdx > current.length) { del = true; setTimeout(type, 2000); return; }
+            if (del && cIdx == 0) { del = false; pIdx = (pIdx + 1) % list.length; }
+            setTimeout(type, del ? 50 : 100);
         }
         type();
 
-        // Particles Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80 },
+                "number": { "value": 60 },
                 "color": { "value": "#00ffd0" },
-                "shape": { "type": "circle" },
                 "opacity": { "value": 0.2 },
                 "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00ffd0", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 2 }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" } }
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffd0", "opacity": 0.1 },
+                "move": { "enable": true, "speed": 1.5 }
             }
         });
     </script>
