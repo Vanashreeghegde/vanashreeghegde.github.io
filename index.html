@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanashree Hegde | AI & Data Science Portfolio</title>
+    <title>Vanashree Hegde | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         :root {
-            --bg: #050505;
-            --accent: #00ffd0;
+            /* Mixed Tech Blue and Cyber Green */
+            --bg: #020a10; 
+            --accent: #00ffd0; 
+            --tech-blue: #0077ff;
             --accent-glow: rgba(0, 255, 208, 0.3);
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
-            --card-bg: rgba(20, 20, 20, 0.9);
+            --card-bg: rgba(10, 25, 30, 0.8);
         }
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+        /* Spikey Tech Background */
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; background: radial-gradient(circle at center, #0a1f30 0%, #020a10 100%); }
+        
         .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
         
         header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -35,33 +39,47 @@
         }
 
         h1 { font-size: 3rem; font-weight: 800; margin: 0; letter-spacing: -1px; text-transform: uppercase; }
-        .tagline { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; min-height: 1.5em; }
+        .tagline { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; min-height: 1.5em; font-weight: 600; }
 
-        section { padding: 80px 0; border-top: 1px solid #1a1a1a; }
-        h2 { font-size: 1.4rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+        section { padding: 80px 0; border-top: 1px solid rgba(0, 255, 208, 0.1); }
+        h2 { font-size: 1.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
 
-        /* Project Styling - Smaller Images */
+        /* Skills/Statistics */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+        .skill-item { background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.1); padding: 25px; border-radius: 12px; text-align: center; }
+        .skill-item:hover { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-5px); }
+        .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
+        .skill-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+        /* Project Layout */
         .project-row { 
             display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; 
-            background: var(--card-bg); border: 1px solid #1a1a1a; margin-bottom: 30px; align-items: center;
+            background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.05); margin-bottom: 30px; align-items: center;
         }
         .project-info { flex: 1; min-width: 300px; }
-        .project-media { width: 280px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid #333; flex-shrink: 0; }
+        .project-media { width: 280px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid #111; flex-shrink: 0; }
         .project-media img { width: 100%; height: 100%; object-fit: cover; }
 
         .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; border: 1px solid var(--accent-glow); display: inline-block; margin-bottom: 8px; }
-        .btn { padding: 12px 30px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; background: transparent; }
-        .btn:hover { background: var(--accent); color: black; box-shadow: 0 0 15px var(--accent); }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
-        .skill-item { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 20px; border-radius: 12px; text-align: center; }
-        .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
+        /* Education */
+        .edu-item { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 15px; border-left: 3px solid var(--accent); }
 
-        .social-icons { display: flex; justify-content: center; gap: 40px; font-size: 2rem; margin-top: 30px; }
-        .social-icons a { color: white; }
-        .social-icons a:hover { color: var(--accent); transform: translateY(-5px); }
+        /* Dynamic Connect Box */
+        .connect-box { 
+            background: linear-gradient(135deg, rgba(0, 255, 208, 0.05), rgba(0, 119, 255, 0.05));
+            padding: 60px; border-radius: 30px; border: 1px solid var(--accent); text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 208, 0.1);
+        }
 
-        footer { text-align: center; padding: 40px; color: var(--text-sec); font-size: 0.75rem; }
+        .btn { padding: 12px 30px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; font-size: 0.75rem; background: transparent; }
+        .btn:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); }
+
+        .social-icons { display: flex; justify-content: center; gap: 35px; font-size: 2.2rem; margin-top: 30px; }
+        .social-icons a { color: #fff; }
+        .social-icons a:hover { color: var(--accent); transform: scale(1.1); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-sec); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -73,21 +91,45 @@
         <h1>VANASHREE G HEGDE</h1>
         <div class="tagline"><span id="typewriter"></span></div>
         <div style="margin-top:30px; display:flex; gap:15px;">
-            <a href="#projects" class="btn">View Work</a>
+            <a href="#projects" class="btn">Portfolio</a>
             <a href="resume.pdf" class="btn" target="_blank">Resume</a>
         </div>
     </header>
 
     <div class="container">
         
+        <section id="skills" data-aos="fade-up">
+            <h2>Technical Skills & Statistics</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-python"></i><div class="skill-name">Python</div></div>
+                <div class="skill-item"><i class="fas fa-calculator"></i><div class="skill-name">Statistics</div></div>
+                <div class="skill-item"><i class="fas fa-brain"></i><div class="skill-name">AI / ML</div></div>
+                <div class="skill-item"><i class="fas fa-chart-bar"></i><div class="skill-name">Data Analytics</div></div>
+                <div class="skill-item"><i class="fas fa-database"></i><div class="skill-name">SQL</div></div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i><div class="skill-name">Power BI</div></div>
+            </div>
+        </section>
+
+        <section id="education" data-aos="fade-up">
+            <h2>Education & Certifications</h2>
+            <div class="edu-item">
+                <div style="font-weight:700;">IIT Roorkee – iHub DivyaSampark</div>
+                <div style="color:var(--accent); font-size:0.9rem;">Advanced Professional Certificate in Data Science & AI | 2025 – Present</div>
+            </div>
+            <div class="edu-item">
+                <div style="font-weight:700;">Maharani Cluster University</div>
+                <div style="color:var(--accent); font-size:0.9rem;">B.Sc. in Data Science | 2021 – 2024</div>
+            </div>
+        </section>
+
         <section id="projects">
-            <h2>Selected Projects</h2>
+            <h2>Featured Projects</h2>
 
             <div class="project-row" data-aos="fade-right">
                 <div class="project-info">
-                    <div style="font-weight:700; font-size:1.2rem;">ISP Churn & Telemetry Dashboard</div>
-                    <div style="margin: 10px 0;"><span class="stat-pill">Power BI</span><span class="stat-pill">DAX</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Analyzing latency and packet loss thresholds to predict customer churn in real-time.</p>
+                    <div style="font-weight:700; font-size:1.2rem;">ISP Churn Telemetry Dashboard</div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Power BI</span><span class="stat-pill">Analytics</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Correlating network latency and packet loss with customer churn patterns.</p>
                 </div>
                 <div class="project-media"><img src="churn_dashboard.jpg" alt="ISP Dashboard"></div>
             </div>
@@ -95,8 +137,8 @@
             <div class="project-row" data-aos="fade-left">
                 <div class="project-info">
                     <div style="font-weight:700; font-size:1.2rem;">Medical AI: Cancer ViT <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank"><i class="fab fa-github"></i></a></div>
-                    <div style="margin: 10px 0;"><span class="stat-pill">Vision Transformers</span><span class="stat-pill">PyTorch</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">High-precision cancer cell classification with explainable Attention Rollout maps.</p>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Transformers</span><span class="stat-pill">PyTorch</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">High-precision cancer cell classification using Vision Transformers with Attention Rollout.</p>
                 </div>
                 <div class="project-media"><img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg"></div>
             </div>
@@ -105,50 +147,24 @@
                 <div class="project-info">
                     <div style="font-weight:700; font-size:1.2rem;">CRM Ticket Classification <a href="https://github.com/Vanashreeghegde/CRM_Support-_System_app" target="_blank"><i class="fab fa-github"></i></a></div>
                     <div style="margin: 10px 0;"><span class="stat-pill">NLP</span><span class="stat-pill">Scikit-Learn</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Automated support system using NLP to categorize customer complaints and prioritize tickets.</p>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Automating support tickets categorization using Natural Language Processing.</p>
                 </div>
                 <div class="project-media"><img src="https://support.cc/images/blog/help-desk-ticketing-system.png"></div>
             </div>
+        </section>
 
-            <div class="project-row" data-aos="fade-left">
-                <div class="project-info">
-                    <div style="font-weight:700; font-size:1.2rem;">Fashion Recommendation <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank"><i class="fab fa-github"></i></a></div>
-                    <div style="margin: 10px 0;"><span class="stat-pill">VGG16</span><span class="stat-pill">Deep Learning</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Image-based similarity engine using visual feature extraction for fashion items.</p>
+        <section id="connect">
+            <div class="connect-box" data-aos="zoom-in">
+                <h2 style="border:none; margin-bottom:10px;">Let's Connect</h2>
+                <p style="color: var(--text-sec); margin-bottom:25px;">Open for Data Science roles and research collaborations.</p>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-                <div class="project-media"><img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp"></div>
-            </div>
-
-            <div class="project-row" data-aos="fade-right">
-                <div class="project-info">
-                    <div style="font-weight:700; font-size:1.2rem;">Superstore Sales Analysis <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank"><i class="fab fa-github"></i></a></div>
-                    <div style="margin: 10px 0;"><span class="stat-pill">EDA</span><span class="stat-pill">Tableau</span></div>
-                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">Discovering regional profit trends and seasonal sales forecasting via data visualization.</p>
-                </div>
-                <div class="project-media"><img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png"></div>
-            </div>
-
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fab fa-python"></i><div class="skill-name">Python</div></div>
-                <div class="skill-item"><i class="fas fa-brain"></i><div class="skill-name">AI / ML</div></div>
-                <div class="skill-item"><i class="fas fa-microchip"></i><div class="skill-name">Deep Learning</div></div>
-                <div class="skill-item"><i class="fas fa-chart-line"></i><div class="skill-name">Power BI</div></div>
-                <div class="skill-item"><i class="fas fa-database"></i><div class="skill-name">SQL</div></div>
             </div>
         </section>
 
-        <section id="connect" style="text-align:center;">
-            <h2>Let's Connect</h2>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </section>
     </div>
 
     <footer>&copy; 2026 VANASHREE G HEGDE</footer>
@@ -158,9 +174,9 @@
     <script>
         AOS.init({ duration: 800 });
         
-        // Typewriter
+        // Typewriter Effect
         const text = document.getElementById("typewriter");
-        const list = ["Data Scientist", "Vision Transformer Specialist", "AI Researcher"];
+        const list = ["Aspiring Data Scientist", "Data Analyst", "AI Aspirant"];
         let pIdx = 0, cIdx = 0, del = false;
         function type() {
             const current = list[pIdx];
@@ -171,14 +187,25 @@
         }
         type();
 
+        // Spikey Tech Particles Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60 },
-                "color": { "value": "#00ffd0" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00ffd0", "opacity": 0.1 },
-                "move": { "enable": true, "speed": 1.5 }
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#00ffd0", "#0077ff"] }, // Mix of Green and Blue
+                "shape": { "type": "triangle" }, // Spikey shapes
+                "opacity": { "value": 0.4 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 140, 
+                    "color": "#00ffd0", 
+                    "opacity": 0.3, 
+                    "width": 1.5 
+                },
+                "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } }
             }
         });
     </script>
