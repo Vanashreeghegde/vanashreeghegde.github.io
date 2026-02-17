@@ -23,8 +23,16 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Spikey Tech Background */
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; background: radial-gradient(circle at center, #0a1f30 0%, #020a10 100%); }
+        /* Thunder Spike Tech Background */
+        #particles-js { 
+            position: fixed; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+            top: 0; 
+            left: 0; 
+            background: radial-gradient(circle at center, #001529 0%, #020a10 100%); 
+        }
         
         .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
         
@@ -43,14 +51,12 @@
         section { padding: 80px 0; border-top: 1px solid rgba(0, 255, 208, 0.1); }
         h2 { font-size: 1.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
 
-        /* Skills/Statistics Grid */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
         .skill-item { background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.1); padding: 25px; border-radius: 12px; text-align: center; }
         .skill-item:hover { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-5px); }
         .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
         .skill-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Project Layout */
         .project-row { 
             display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; 
             background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.05); margin-bottom: 30px; align-items: center;
@@ -61,10 +67,8 @@
 
         .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; border: 1px solid var(--accent-glow); display: inline-block; margin-bottom: 8px; }
 
-        /* Education */
         .edu-item { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 15px; border-left: 3px solid var(--accent); }
 
-        /* Dynamic Connect Box */
         .connect-box { 
             background: linear-gradient(135deg, rgba(0, 255, 208, 0.05), rgba(0, 119, 255, 0.05));
             padding: 60px; border-radius: 30px; border: 1px solid var(--accent); text-align: center;
@@ -90,7 +94,7 @@
         <h1>VANASHREE G HEGDE</h1>
         <div class="tagline">Data Scientist</div>
         <div style="margin-top:30px; display:flex; gap:15px;">
-            <a href="#projects" class="btn">View Work</a>
+            <a href="#projects" class="btn">My Work</a>
             <a href="resume.pdf" class="btn" target="_blank">Resume</a>
         </div>
     </header>
@@ -211,40 +215,47 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         AOS.init({ duration: 800 });
-        
-        // Typewriter Effect
-        const text = document.getElementById("typewriter");
-        const list = ["Aspiring Data Scientist", "Data Analyst", "AI Aspirant"];
-        let pIdx = 0, cIdx = 0, del = false;
-        function type() {
-            const current = list[pIdx];
-            text.textContent = current.substring(0, del ? cIdx-- : cIdx++);
-            if (!del && cIdx > current.length) { del = true; setTimeout(type, 2000); return; }
-            if (del && cIdx == 0) { del = false; pIdx = (pIdx + 1) % list.length; }
-            setTimeout(type, del ? 50 : 100);
-        }
-        type();
 
-        // Spikey Tech Particles Configuration
+        // Blue Thunder Spike Particles Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": ["#00ffd0", "#0077ff"] },
-                "shape": { "type": "triangle" },
-                "opacity": { "value": 0.4 },
-                "size": { "value": 3, "random": true },
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#0077ff", "#00ffd0", "#ffffff"] },
+                "shape": { "type": "circle" },
+                "opacity": { 
+                    "value": 0.6, 
+                    "random": true, 
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } 
+                },
+                "size": { "value": 2, "random": true },
                 "line_linked": { 
                     "enable": true, 
-                    "distance": 140, 
-                    "color": "#00ffd0", 
-                    "opacity": 0.3, 
-                    "width": 1.5 
+                    "distance": 170, 
+                    "color": "#0077ff", 
+                    "opacity": 0.5, 
+                    "width": 1.5,
+                    "shadow": { "enable": true, "blur": 5, "color": "#00ffd0" }
                 },
-                "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+                "move": { 
+                    "enable": true, 
+                    "speed": 6, 
+                    "direction": "none", 
+                    "random": false, 
+                    "straight": false, 
+                    "out_mode": "out",
+                    "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
+                }
             },
             "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "grab" } }
-            }
+                "events": { 
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" }
+                },
+                "modes": {
+                    "grab": { "distance": 200, "line_linked": { "opacity": 1 } }
+                }
+            },
+            "retina_detect": true
         });
     </script>
 </body>
