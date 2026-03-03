@@ -2,226 +2,263 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vanashree | Data Science & AI Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
-
+    <title>Vanashree Hegde | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f8fafc;
-            --text-sec: #94a3b8;
-            --accent: #38bdf8;
+            --bg: #020a10; 
+            --accent: #00ffd0; 
+            --tech-blue: #0077ff;
+            --accent-glow: rgba(0, 255, 208, 0.3);
+            --text-main: #ffffff;
+            --text-sec: #a0a0a0;
+            --card-bg: rgba(10, 25, 30, 0.8);
         }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Network Related Background */
+        #particles-js { 
+            position: fixed; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+            top: 0; 
+            left: 0; 
+            background: radial-gradient(circle at center, #001529 0%, #020a10 100%); 
+        }
+        
+        .container { width: 90%; max-width: 1000px; margin: auto; position: relative; z-index: 1; }
+        
+        header { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 3px solid var(--accent); animation: breathing 4s ease-in-out infinite; }
+
+        @keyframes breathing {
+            0% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 25px var(--accent); transform: scale(1.03); }
+            100% { box-shadow: 0 0 5px var(--accent-glow); transform: scale(1); }
         }
 
-        h2 {
-            text-align: center;
-            margin: 70px 0 40px 0;
+        h1 { font-size: 3rem; font-weight: 800; margin: 0; letter-spacing: -1px; text-transform: uppercase; color: #fff; }
+        .tagline { color: var(--accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; min-height: 1.5em; font-weight: 600; }
+
+        section { padding: 80px 0; border-top: 1px solid rgba(0, 255, 208, 0.1); }
+        h2 { font-size: 1.3rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+        .skill-item { background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.1); padding: 25px; border-radius: 12px; text-align: center; }
+        .skill-item:hover { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-5px); }
+        .skill-item i { font-size: 2rem; margin-bottom: 10px; color: var(--accent); }
+        .skill-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+        .project-row { 
+            display: flex; flex-wrap: wrap; gap: 30px; padding: 25px; border-radius: 20px; 
+            background: var(--card-bg); border: 1px solid rgba(0, 255, 208, 0.05); margin-bottom: 30px; align-items: center;
+        }
+        .project-info { flex: 1; min-width: 300px; }
+        .project-media { width: 280px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid #111; flex-shrink: 0; }
+        .project-media img { width: 100%; height: 100%; object-fit: cover; }
+
+        .stat-pill { background: rgba(0, 255, 208, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; border: 1px solid var(--accent-glow); display: inline-block; margin-bottom: 8px; }
+
+        .edu-item { padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 15px; border-left: 3px solid var(--accent); }
+
+        .connect-box { 
+            background: linear-gradient(135deg, rgba(0, 255, 208, 0.05), rgba(0, 119, 255, 0.05));
+            padding: 60px; border-radius: 30px; border: 1px solid var(--accent); text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 208, 0.1);
         }
 
-        section {
-            width: 85%;
-            margin: auto;
-        }
+        .btn { padding: 12px 30px; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; font-size: 0.75rem; background: transparent; cursor: pointer; }
+        .btn:hover { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent); }
 
-        .project-row {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            justify-content: center;
-            margin: 70px auto;
-            flex-wrap: wrap;
-        }
+        .social-icons { display: flex; justify-content: center; gap: 35px; font-size: 2.2rem; margin-top: 30px; }
+        .social-icons a { color: #fff; text-decoration: none; }
+        .social-icons a:hover { color: var(--accent); transform: scale(1.1); }
 
-        .project-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .project-media {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .project-media img {
-            width: 100%;
-            border-radius: 14px;
-        }
-
-        .stat-pill {
-            display: inline-block;
-            background: var(--card);
-            padding: 6px 14px;
-            margin: 6px 6px 6px 0;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        .project-desc {
-            line-height: 1.8;
-            margin-top: 12px;
-            color: var(--text-sec);
-        }
-
-        .skills p {
-            margin: 18px 0;
-            line-height: 1.8;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-sec);
-            margin-top: 60px;
-        }
+        footer { text-align: center; padding: 40px; color: var(--text-sec); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<!-- SKILLS SECTION -->
-<section id="skills">
-    <h2>Technical Skills</h2>
+    <div id="particles-js"></div>
 
-    <div class="skills">
-        <p><strong>Programming:</strong> Python, SQL</p>
+    <header data-aos="zoom-in">
+        <img src="profile.jpeg" alt="Vanashree" class="profile-img">
+        <h1>VANASHREE G HEGDE</h1>
+        <div class="tagline">Data Scientist</div>
+        <div style="margin-top:30px; display:flex; gap:15px;">
+            <a href="#projects" class="btn">My Work</a>
+            <a href="resume.pdf" class="btn" target="_blank">Resume</a>
+        </div>
+    </header>
 
-        <p><strong>Machine Learning:</strong> Scikit-learn, Regression, Classification, Model Evaluation, Feature Engineering</p>
+    <div class="container">
+        
+        <section id="skills" data-aos="fade-up">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-python"></i><div class="skill-name">Python</div></div>
+                <div class="skill-item"><i class="fas fa-calculator"></i><div class="skill-name">Statistics</div></div>
+                <div class="skill-item"><i class="fas fa-brain"></i><div class="skill-name">AI / ML</div></div>
+                <div class="skill-item"><i class="fas fa-chart-bar"></i><div class="skill-name">Data Analytics</div></div>
+                <div class="skill-item"><i class="fas fa-database"></i><div class="skill-name">SQL</div></div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i><div class="skill-name">Power BI</div></div>
+            </div>
+        </section>
 
-        <p><strong>Generative AI:</strong> Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Prompt Engineering, Semantic Search, Context Window Optimization</p>
+        <section id="education" data-aos="fade-up">
+            <h2>Education & Certifications</h2>
+            <div class="edu-item">
+                <div style="font-weight:700;">IIT Roorkee – iHub DivyaSampark</div>
+                <div style="color:var(--accent); font-size:0.9rem;">Advanced Professional Certificate in Data Science & AI | 2025 – Present</div>
+            </div>
+            <div class="edu-item">
+                <div style="font-weight:700;">Maharani Cluster University</div>
+                <div style="color:var(--accent); font-size:0.9rem;">B.Sc. in Data Science | 2021 – 2024</div>
+            </div>
+        </section>
 
-        <p><strong>Vector Databases:</strong> ChromaDB</p>
+        <section id="projects">
+            <h2>My Work</h2>
 
-        <p><strong>Data Analysis & Visualization:</strong> Pandas, NumPy, Matplotlib, Power BI</p>
+            <div class="project-row" data-aos="fade-right">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">ISP Churn Analytics Dashboard <a href="https://github.com/Vanashreeghegde/ISP-Churn-Analysis-Dashboard" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;">
+                        <span class="stat-pill">Power BI</span>
+                        <span class="stat-pill">SQL</span>
+                        <span class="stat-pill">DAX Modeling</span>
+                    </div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">
+                        Developed an end-to-end churn analytics pipeline identifying drivers like latency and packet loss across 10k+ records. <br>
+                        Engineered interactive dashboards using SQL Window Functions and DAX to rank high-risk geographic segments. <br>
+                        Delivered data-driven intelligence correlating technical telemetry with customer retention strategies.
+                    </p>
+                </div>
+                <div class="project-media">
+                    <img src="https://raw.githubusercontent.com/Vanashreeghegde/vanashreeghegde.github.io/main/output.jpeg" alt="ISP Churn Analysis">
+                </div>
+            </div>
 
-        <p><strong>Web & Deployment:</strong> Streamlit</p>
+            <div class="project-row" data-aos="fade-left">
+                <div class="project-info"> 
+                    <div style="font-weight:700; font-size:1.2rem;">Cancer Cell Classification <a href="https://github.com/Vanashreeghegde/Medical-AI-VIT-" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Transformers (ViT)</span><span class="stat-pill">Explainability (XAI)</span><span class="stat-pill">PyTorch</span></div>
+                    
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">
+                        Utilized Transformer architectures (ViT-Base) to classify histopathology images for cancer detection with 94.5% validation accuracy. <br>
+                        Implemented Attention Rollout mechanisms to solve the "Interpretability Gap" by highlighting cellular structures influencing AI decisions. <br>
+                        Developed a laboratory-grade interface using Gradio to visualize high-risk cellular hotspots via real-time heatmap generation.
+                    </p>
+                </div>
+                <div class="project-media">
+                    <img src="https://engineering.berkeley.edu/wp-content/uploads/2021/08/iStock-1011146302.jpg" alt="Cancer cell dectection">
+                </div>
+            </div>
 
-        <p><strong>Databases:</strong> MySQL, MSSQL</p>
+            <div class="project-row" data-aos="fade-right">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">Fashion Recommendation Engine <a href="https://github.com/Vanashreeghegde/Fasion-Recommandation-System-" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">VGG16 (CNN)</span><span class="stat-pill">Cosine Similarity</span><span class="stat-pill">Keras</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">
+                        Engineered a visual search engine using VGG16 CNN architecture for high-dimensional feature extraction of fashion items. <br>
+                        Implemented similarity-based logic using Cosine Similarity to rank and deliver top-N matching visual assets. <br>
+                        Developed a complete computer vision pipeline from preprocessing to real-time recommendation rendering.
+                    </p>
+                </div>
+                <div class="project-media">
+                    <img src="https://shafiqulai.github.io/img/blog_7/thumbnail.webp" alt="Fashion Recommendation System">
+                </div>
+            </div>
+
+            <div class="project-row" data-aos="fade-left">
+                <div class="project-info">
+                    <div style="font-weight:700; font-size:1.2rem;">Superstore Sales Analytics <a href="https://github.com/Vanashreeghegde/Superstore-Sales-Analysis" target="_blank"><i class="fab fa-github"></i></a></div>
+                    <div style="margin: 10px 0;"><span class="stat-pill">Python (EDA)</span><span class="stat-pill">Plotly</span><span class="stat-pill">Business Insights</span></div>
+                    <p class="project-desc" style="font-size:0.9rem; color:var(--text-sec);">
+                        Executed comprehensive EDA on retail data to uncover patterns in sales, profit, and customer behavior across regions. <br>
+                        Developed interactive visualizations that pinpointed Q4 revenue peaks and regional profitability drivers. <br>
+                        Quantified the impact of discount strategies on profit margins, providing data-driven pricing optimization recommendations.
+                    </p>
+                </div>
+                <div class="project-media">
+                    <img src="https://raw.githubusercontent.com/Vanashreeghegde/Superstore-Sales-Analysis/main/Superstore-sales-Analysis.png" alt="Superstore Sales Analysis">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="connect">
+            <div class="connect-box" data-aos="zoom-in">
+                <h2 style="border:none; margin-bottom:10px;">Let's Connect</h2>
+                <p style="color: var(--text-sec); margin-bottom:25px;">Open for Data Science roles and research collaborations.</p>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/in/vanashree-g-hegde" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Vanashreeghegde" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:hegdevanashree88@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
     </div>
-</section>
 
+    <footer>&copy; 2026 VANASHREE G HEGDE |👩🏻‍🦰</footer>
 
-<!-- PROJECTS SECTION -->
-<section id="projects">
-    <h2>My Work</h2>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        AOS.init({ duration: 800 });
 
-    <!-- PROJECT 1 -->
-    <div class="project-row" data-aos="fade-right">
-        <div class="project-info">
-            <div style="font-weight:700; font-size:1.2rem;">
-                Personalized Data Science Interview Bot
-                <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-
-            <div>
-                <span class="stat-pill">LLM (Groq)</span>
-                <span class="stat-pill">RAG Pipeline</span>
-                <span class="stat-pill">ChromaDB</span>
-                <span class="stat-pill">Streamlit</span>
-            </div>
-
-            <p class="project-desc">
-                Architected an AI-powered interview simulation platform generating adaptive questions across Machine Learning, SQL, Python, and Statistics.<br><br>
-                Implemented a Retrieval-Augmented Generation (RAG) pipeline using semantic embeddings and ChromaDB for context-aware, non-repetitive question generation.<br><br>
-                Integrated Groq-hosted LLM models with structured prompt engineering to dynamically control question difficulty and domain focus.<br><br>
-                Built automated answer scoring (0–10 scale), session tracking, and 45-minute timed assessment functionality within Streamlit.
-            </p>
-        </div>
-
-        <div class="project-media">
-            <img src="images/interview-bot.png" alt="Interview Bot">
-        </div>
-    </div>
-
-
-    <!-- PROJECT 2 -->
-    <div class="project-row" data-aos="fade-left">
-        <div class="project-info">
-            <div style="font-weight:700; font-size:1.2rem;">
-                ISP Customer Churn Dashboard
-                <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-
-            <div>
-                <span class="stat-pill">MSSQL</span>
-                <span class="stat-pill">Python</span>
-                <span class="stat-pill">Power BI</span>
-            </div>
-
-            <p class="project-desc">
-                Built an end-to-end churn analytics pipeline using SQL and Python to calculate churn rate and tenure-based risk segmentation.<br><br>
-                Conducted exploratory data analysis to uncover behavioral churn patterns based on latency and customer tenure.<br><br>
-                Developed interactive Power BI dashboards enabling dynamic filter-based analysis and retention-focused insights.
-            </p>
-        </div>
-
-        <div class="project-media">
-            <img src="images/churn-dashboard.png" alt="Churn Dashboard">
-        </div>
-    </div>
-
-
-    <!-- PROJECT 3 -->
-    <div class="project-row" data-aos="fade-right">
-        <div class="project-info">
-            <div style="font-weight:700; font-size:1.2rem;">
-                CRM Support Ticket Classification
-                <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-
-            <div>
-                <span class="stat-pill">Python</span>
-                <span class="stat-pill">NLP</span>
-                <span class="stat-pill">TF-IDF</span>
-                <span class="stat-pill">Scikit-learn</span>
-            </div>
-
-            <p class="project-desc">
-                Developed a multi-class NLP classification model on 24,000+ support tickets using TF-IDF and Logistic Regression (89% accuracy).<br><br>
-                Applied text preprocessing techniques including tokenization, stopword removal, and vectorization.<br><br>
-                Evaluated performance using precision, recall, and F1-score metrics and deployed via Streamlit for real-time categorization.
-            </p>
-        </div>
-
-        <div class="project-media">
-            <img src="images/ticket-classification.png" alt="Ticket Classification">
-        </div>
-    </div>
-
-</section>
-
-
-<footer>
-    © 2026 Vanashree | Data Science & AI Portfolio
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-
+        // High-Tech Network Infrastructure Configuration
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 110, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#0077ff", "#00ffd0"] },
+                "shape": { "type": "triangle" },
+                "opacity": { 
+                    "value": 0.5, 
+                    "random": false, 
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } 
+                },
+                "size": { "value": 3, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#0077ff", 
+                    "opacity": 0.4, 
+                    "width": 1.2,
+                    "shadow": { "enable": true, "blur": 3, "color": "#00ffd0" }
+                },
+                "move": { 
+                    "enable": true, 
+                    "speed": 2.5, 
+                    "direction": "none", 
+                    "random": false, 
+                    "straight": false, 
+                    "out_mode": "bounce",
+                    "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
+                }
+            },
+            "interactivity": {
+                "events": { 
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "bubble" }
+                },
+                "modes": {
+                    "grab": { "distance": 220, "line_linked": { "opacity": 1 } },
+                    "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
+this is my portfolio. add my personalized data science interview bot same as all the projects add there this bot shld in serial number 1
